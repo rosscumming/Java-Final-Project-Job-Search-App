@@ -1,8 +1,13 @@
-import React from "react";
-import "./App.css";
+import React, {Component} from "react";
+import Main from "./Components/Main";
 
-function App() {
-  return <h1>Welcome to 5 Guys Project</h1>;
+class App extends Component {
+
+  render() {
+    return (
+      <Main />
+    )
+  }
 }
 
 export default App;
