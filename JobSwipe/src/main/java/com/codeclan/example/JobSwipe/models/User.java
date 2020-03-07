@@ -49,6 +49,7 @@ public class User {
 
     public void addSavedJob(SavedJob job){
         this.savedJobs.add(job);
+        updateUserSalary(job);
     }
 
 

@@ -51,9 +51,9 @@ public class UserTest {
     @Test
     public void testAddingSavedJobUpdatesUserSalaryIfLikingSalaryThatIsHigher(){
          user1.addSavedJob(job1);
-         user1.updateUserSalary(job1);
          assertEquals(11666, user1.getSalary());
     }
+
 
 
 
