@@ -22,6 +22,9 @@ public class User {
     private Integer salary;
 
     @Column
+    private Integer initial_salary;
+
+    @Column
     private Integer salary_weight;
 
     @Column
@@ -39,9 +42,10 @@ public class User {
     private List<SavedJob> savedJobs;
 
 
-    public User (String name, Integer salary, Integer salary_weight, String location){
+    public User (String name, Integer salary, Integer initial_salary, Integer salary_weight, String location){
         this.name = name;
         this.salary = salary;
+        this.initial_salary = initial_salary;
         this.salary_weight = salary_weight;
         this.location = location;
         this.savedJobs = new ArrayList<SavedJob>();
@@ -89,6 +93,14 @@ public class User {
         this.salary = salary;
     }
 
+    public Integer getInitial_salary() {
+        return initial_salary;
+    }
+
+    public void setInitial_salary(Integer initial_salary) {
+        this.initial_salary = initial_salary;
+    }
+
 
     public Integer getSalary_weight() {
         return salary_weight;
@@ -118,5 +130,10 @@ public class User {
         Integer salaryDifference = (this.salary * this.salary_weight) + (job1.getSalary() * job1.getSalary_weight());
         updateUserSalaryWeight(job1);
         this.salary = salaryDifference/(this.salary_weight);
+    }
+
+    public void resetSalary() {
+        this.salary = this.initial_salary;
+        this.salary_weight = 5;
     }
 }

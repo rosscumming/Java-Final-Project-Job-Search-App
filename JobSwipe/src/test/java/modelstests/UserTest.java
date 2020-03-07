@@ -18,7 +18,7 @@ public class UserTest {
 
      @Before
      public void before() {
-        user1 = new User("Bob", 10000, 5, "Edinburgh");
+        user1 = new User("Bob", 10000, 10000, 5, "Edinburgh");
         job1 = new SavedJob("Microsoft", "Junior Developer", 20000, 1, "Entry Level position using Java");
         job2 = new SavedJob("Startup", "Apprentice", 8000, 1, "Low Paid Position");
      }
@@ -60,6 +60,14 @@ public class UserTest {
     public void testAddingSavedJobUpdatesUserSalaryIfLikingSalaryThatIsLower(){
         user1.addSavedJob(job2);
         assertEquals(9666, user1.getSalary());
+    }
+
+    @Test
+    public void testCanResetSalaryExpectationToRegistrationDefault(){
+        user1.addSavedJob(job1);
+        user1.resetSalary();
+        assertEquals(10000, user1.getSalary());
+        assertEquals(5, user1.getSalary_weight());
     }
 
 

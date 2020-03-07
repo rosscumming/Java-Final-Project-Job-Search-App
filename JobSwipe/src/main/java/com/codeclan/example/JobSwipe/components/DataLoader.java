@@ -21,7 +21,7 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 
 
-        User user1 = new User("Bob", 10000, 5, "Edinburgh");
+        User user1 = new User("Bob", 10000, 10000, 5, "Edinburgh");
         userRepository.save(user1);
 
         SavedJob job1 = new SavedJob("Microsoft", "Junior Developer", 25000, 5, "Entry Level position using Java");
