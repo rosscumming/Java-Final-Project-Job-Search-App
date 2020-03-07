@@ -1,5 +1,6 @@
 package com.codeclan.example.JobSwipe;
 
+import com.codeclan.example.JobSwipe.models.SavedJob;
 import com.codeclan.example.JobSwipe.models.User;
 import com.codeclan.example.JobSwipe.repositories.UserRepository;
 import org.aspectj.lang.annotation.Before;
@@ -17,12 +18,11 @@ class JobSwipeApplicationTests {
 	@Autowired
 	UserRepository userRepository;
 
-	private User user;
-
-
 	@Test
 	void contextLoads() {
 	}
+
+
 
 
 

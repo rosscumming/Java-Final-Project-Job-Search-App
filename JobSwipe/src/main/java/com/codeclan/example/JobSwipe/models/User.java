@@ -39,8 +39,6 @@ public class User {
     private List<SavedJob> savedJobs;
 
 
-
-
     public User (String name, Integer salary, Integer salary_weight, String location){
         this.name = name;
         this.salary = salary;
@@ -56,7 +54,6 @@ public class User {
 
     public User () {
     }
-
 
     public List<SavedJob> getSavedJobs() {
         return savedJobs;
@@ -108,5 +105,7 @@ public class User {
         this.location = location;
     }
 
-
+    public int savedJobCount() {
+        return savedJobs.size();
+    }
 }
