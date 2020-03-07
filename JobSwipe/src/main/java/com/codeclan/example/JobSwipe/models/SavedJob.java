@@ -40,9 +40,7 @@ public class SavedJob {
     )
 
     private List<User> users;
-
-
-
+    
 
     public SavedJob(String company, String title, Integer salary, Integer salary_weight, String description) {
         this.company = company;

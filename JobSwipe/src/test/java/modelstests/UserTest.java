@@ -11,13 +11,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class UserTest {
 
 
-     User user1;
-     SavedJob job1;
+     private User user1;
+     private SavedJob job1;
+     private SavedJob job2;
+
 
      @Before
      public void before() {
         user1 = new User("Bob", 10000, 5, "Edinburgh");
         job1 = new SavedJob("Microsoft", "Junior Developer", 20000, 1, "Entry Level position using Java");
+        job2 = new SavedJob("Startup", "Apprentice", 8000, 1, "Low Paid Position");
      }
 
     @Test
@@ -53,6 +56,14 @@ public class UserTest {
          user1.addSavedJob(job1);
          assertEquals(11666, user1.getSalary());
     }
+
+    @Test
+    public void testAddingSavedJobUpdatesUserSalaryIfLikingSalaryThatIsLower(){
+        user1.addSavedJob(job2);
+        assertEquals(9666, user1.getSalary());
+    }
+
+
 
 
 
