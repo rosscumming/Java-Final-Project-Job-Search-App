@@ -47,7 +47,6 @@ public class UserTest {
     @Test
     public void testAddingJobUpdatesUserSalaryWeight(){
          user1.addSavedJob(job1);
-         user1.updateUserSalaryWeight(job1);
          assertEquals(6, user1.getSalary_weight());
     }
 

@@ -111,7 +111,7 @@ public class User {
     }
 
     public void updateUserSalaryWeight(SavedJob job1) {
-        this.salary_weight += 1;
+        this.salary_weight += job1.getSalary_weight();
     }
 
     public void updateUserSalary(SavedJob job1){
