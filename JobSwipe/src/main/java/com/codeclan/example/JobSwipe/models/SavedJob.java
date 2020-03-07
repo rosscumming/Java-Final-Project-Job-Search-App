@@ -25,6 +25,9 @@ public class SavedJob {
     private Integer salary;
 
     @Column
+    private Integer salary_weight;
+
+    @Column
     private String description;
 
     @JsonIgnoreProperties("savedJobs")
@@ -39,10 +42,13 @@ public class SavedJob {
     private List<User> users;
 
 
-    public SavedJob(String company, String title, Integer salary, String description) {
+
+
+    public SavedJob(String company, String title, Integer salary, Integer salary_weight, String description) {
         this.company = company;
         this.title = title;
         this.salary = salary;
+        this.salary_weight = salary_weight;
         this.description = description;
         this.users = new ArrayList<User>();
     }
@@ -93,6 +99,15 @@ public class SavedJob {
     public void setSalary(Integer salary) {
         this.salary = salary;
     }
+
+    public Integer getSalary_weight() {
+        return salary_weight;
+    }
+
+    public void setSalary_weight(Integer salary_weight) {
+        this.salary_weight = salary_weight;
+    }
+
 
     public String getDescription() {
         return description;

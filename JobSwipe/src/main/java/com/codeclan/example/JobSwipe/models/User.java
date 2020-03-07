@@ -22,6 +22,9 @@ public class User {
     private Integer salary;
 
     @Column
+    private Integer salary_weight;
+
+    @Column
     private String location;
 
     @JsonIgnoreProperties("users")
@@ -35,17 +38,13 @@ public class User {
 
     private List<SavedJob> savedJobs;
 
-    public List<SavedJob> getSavedJobs() {
-        return savedJobs;
-    }
 
-    public void setSavedJobs(List<SavedJob> savedJobs) {
-        this.savedJobs = savedJobs;
-    }
 
-    public User (String name, Integer salary, String location){
+
+    public User (String name, Integer salary, Integer salary_weight, String location){
         this.name = name;
         this.salary = salary;
+        this.salary_weight = salary_weight;
         this.location = location;
         this.savedJobs = new ArrayList<SavedJob>();
     }
@@ -55,10 +54,18 @@ public class User {
     }
 
 
-
     public User () {
-
     }
+
+
+    public List<SavedJob> getSavedJobs() {
+        return savedJobs;
+    }
+
+    public void setSavedJobs(List<SavedJob> savedJobs) {
+        this.savedJobs = savedJobs;
+    }
+
 
     public Long getId() {
         return id;
@@ -82,6 +89,15 @@ public class User {
 
     public void setSalary(Integer salary) {
         this.salary = salary;
+    }
+
+
+    public Integer getSalary_weight() {
+        return salary_weight;
+    }
+
+    public void setSalary_weight(Integer salary_weight) {
+        this.salary_weight = salary_weight;
     }
 
     public String getLocation() {
