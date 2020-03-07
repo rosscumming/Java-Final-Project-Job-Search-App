@@ -41,6 +41,17 @@ public class User {
 
     private List<SavedJob> savedJobs;
 
+    @JsonIgnoreProperties("users")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "users_disliked_jobs",
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name="disliked_jobs_id", nullable = false, updatable = false)}
+    )
+
+    private List<DislikedJob> dislikedJobs;
+
 
     public User (String name, Integer salary, Integer initial_salary, Integer salary_weight, String location){
         this.name = name;
@@ -49,6 +60,7 @@ public class User {
         this.salary_weight = salary_weight;
         this.location = location;
         this.savedJobs = new ArrayList<SavedJob>();
+        this.dislikedJobs = new ArrayList<DislikedJob>();
     }
 
     public void addSavedJob(SavedJob job){
@@ -66,6 +78,14 @@ public class User {
 
     public void setSavedJobs(List<SavedJob> savedJobs) {
         this.savedJobs = savedJobs;
+    }
+
+    public List<DislikedJob> getDislikedJobs() {
+        return dislikedJobs;
+    }
+
+    public void setDislikedJobs(List<DislikedJob> dislikedJobs) {
+        this.dislikedJobs = dislikedJobs;
     }
 
 
