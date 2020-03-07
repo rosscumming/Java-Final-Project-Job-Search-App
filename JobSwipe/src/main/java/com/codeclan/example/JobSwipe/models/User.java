@@ -108,4 +108,14 @@ public class User {
     public int savedJobCount() {
         return savedJobs.size();
     }
+
+    public void updateUserSalaryWeight(SavedJob job1) {
+        this.salary_weight += 1;
+    }
+
+    public void updateUserSalary(SavedJob job1){
+        Integer salaryDifference = (this.salary * this.salary_weight) + (job1.getSalary() * job1.getSalary_weight());
+        updateUserSalaryWeight(job1);
+        this.salary = salaryDifference/(this.salary_weight);
+    }
 }
