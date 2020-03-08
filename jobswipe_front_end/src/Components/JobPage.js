@@ -10,7 +10,7 @@ render(){
       <h2>Company Name</h2>
       <h2>Job Title</h2>
         <button>LIKE</button><button>DISLIKE</button>
-        <p>Description</p><p>Salary</p>
+        <p>Description:</p><p>Salary: £</p>
     </section>
 
   )
