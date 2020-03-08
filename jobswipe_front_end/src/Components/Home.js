@@ -4,10 +4,17 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-      <h1>Welcome to JobSwipe</h1>,
-      <h2>This is our Homepage</h2>
-      </div>
+      <section>
+      <h1>Welcome to JobSwipe</h1>
+      <h2>Homepage</h2>
+      <p>User Instructions</p>
+      <ul>
+      <li>Instruction 1</li>
+      <li>Instruction 2</li>
+      </ul>
+      <button>Register</button>
+      <button>Log In</button>
+      </section>
 
     )
   }
