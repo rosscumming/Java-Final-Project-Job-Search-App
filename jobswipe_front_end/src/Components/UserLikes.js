@@ -4,24 +4,42 @@ const UserLikes = () => {
 
   const [likedJobs, setLikedJobs] = useState([])
 
-useEffect(() => {
-  fetch("http://localhost:8080/users/15/savedJobs")
-  .then(res => res.json())
-  .then(data => console.log(data['_embedded'].savedJobs))
-  .then(jobs => setLikedJobs(...likedJobs, jobs))
-}, [])
+  const jobsLength = () => likedJobs.length
+
+  const getJobs = () => {
+    fetch("http://localhost:8080/users/15/savedJobs")
+    .then(res => res.json())
+    .then(data => data['_embedded'].savedJobs)
+    .then(jobs => setLikedJobs([...jobs]))
+    .then(console.log(likedJobs))
+  }
+
+  useEffect(() => {
+    getJobs()
+  }, [jobsLength()])
+
+
+  const allLikedJobs = () => {
+    if (!likedJobs.length > 0) return null;
+    return (
+      <ul>
+      {likedJobs.map((job, id) => {
+        return <li key={id}>{job.title}</li>
+      })
+    }
+    </ul>
+  )
+}
 
 return (
-      <section>
-      <h1>Liked Jobs List</h1>
-      <ul>
-        <li>Liked Job 1</li>
-        <li>Liked Job 2</li>
-        <li>Liked Job 3</li>
-      </ul>
-      </section>
+  <section>
+  <h1>Liked Jobs List</h1>
+  <ul>
+  {allLikedJobs()}
+  </ul>
+  </section>
 
-    );
+);
 }
 
 export default UserLikes;
