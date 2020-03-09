@@ -111,10 +111,10 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user9);
 
 
-        User user10 = new User("Lauren", 70000, "Leith");
+        User user10 = new User("Lauren", 70000, "Edinburgh");
         userRepository.save(user10);
 
-        SavedJob job10 = new SavedJob("CodeBar", "Senior DevOps", 100000, "Executive position using PHP");
+        SavedJob job10 = new SavedJob("CodeBar", "Senior Dev", 100000, "Executive position using PHP");
         savedJobRepository.save(job10);
 
         user10.addSavedJob(job10);
@@ -128,8 +128,7 @@ public class DataLoader implements ApplicationRunner {
         savedJobRepository.save(job11);
 
         user11.addSavedJob(job11);
-        userRepository.save(user11);User user11 = new User("Andrew", 150000, "Granton");
-        userRepository.save(user11);
+        userRepository.save(user11)
 
 
         User user12 = new User("Cody", 140000, "Pilton");
