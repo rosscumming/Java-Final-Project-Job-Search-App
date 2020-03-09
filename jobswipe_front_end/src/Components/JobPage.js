@@ -43,6 +43,7 @@ const JobPage = ({ jobs }) => {
     <section>
     <h2>{ job.employerName }</h2>
     <h2>{ job.jobTitle }</h2>
+    <p> { job.jobDescription } </p>
     <p><button onClick={() => setSelectedJobIndex(selectedJobIndex+1)}>Next Job</button>
     <button onClick={handleJobLiked}>I Love This Job!</button>
     </p>

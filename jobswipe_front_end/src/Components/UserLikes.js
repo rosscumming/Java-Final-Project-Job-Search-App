@@ -24,7 +24,10 @@ const UserLikes = () => {
     return (
       <ul>
       {likedJobs.map((job, id) => {
-        return <li key={id}>{job.title}</li>
+        return <li key={id}>
+        <h2>{job.title}</h2>
+        <h3>{job.description}</h3>
+        </li>
       })
     }
     </ul>
