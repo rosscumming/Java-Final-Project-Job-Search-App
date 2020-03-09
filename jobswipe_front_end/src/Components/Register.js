@@ -39,17 +39,6 @@ value={this.state.location} />
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
 }
 
 export default Register;
