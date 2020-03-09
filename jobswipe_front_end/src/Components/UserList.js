@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class UserList extends Component {
+const UserList = () => (
 
-render() {
-  return(
     <section>
     <h1>User List Information</h1>
     <ul>
@@ -16,10 +14,7 @@ render() {
     </ul>
 
     </section>
-  )
-}
+  );
 
 
-
-}
 export default UserList;

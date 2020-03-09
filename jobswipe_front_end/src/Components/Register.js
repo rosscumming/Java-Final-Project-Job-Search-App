@@ -32,7 +32,7 @@ value={this.state.salary} />
 placeholder="Location"
 value={this.state.location} />
 
-<input type="submit" value="Register" />
+<input type="submit" value="POST" />
 </form>
 </article>
 )

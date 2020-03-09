@@ -1,9 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class JobPage extends Component {
-
-render(){
-  return (
+const JobPage = () => (
 
     <section>
       <h1>New Job Details</h1>
@@ -13,10 +10,7 @@ render(){
         <p>Description:</p><p>Salary: £</p>
     </section>
 
-  )
-}
-
-}
+  );
 
 
 

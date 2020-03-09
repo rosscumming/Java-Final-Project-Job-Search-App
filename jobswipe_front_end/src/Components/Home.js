@@ -1,9 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Home extends Component {
-
-  render() {
-    return (
+const Home = () => (
       <section>
         <h1>Welcome to JobSwipe</h1>
         <h2>Homepage</h2>
@@ -18,9 +15,6 @@ class Home extends Component {
         <button>Log In</button>
       </section>
 
-    )
-  }
-
-}
+    );
 
 export default Home;

@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class UserLikes extends Component {
+const UserLikes = () => (
 
-  render(){
-    return (
       <section>
       <h1>Liked Jobs List</h1>
       <ul>
@@ -13,11 +11,7 @@ class UserLikes extends Component {
       </ul>
       </section>
 
-    )
-  }
+    );
 
 
-
-
-}
 export default UserLikes;
