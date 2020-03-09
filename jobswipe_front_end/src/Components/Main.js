@@ -40,10 +40,10 @@ class Main extends Component {
       <NavBar />
       <Switch>
       <Route exact path="/" component={Home} />
-      <Route path="/register" component={Register} />
-      <Route path="/users" render={() => <UserList users={this.state.users} />} />
-      <Route path="/likes" component={UserLikes} />
-      <Route path="/jobs" render={() => <JobPage jobs={this.state.jobs} />} />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/users" render={() => <UserList users={this.state.users} />} />
+      <Route exact path="/likes" component={UserLikes} />
+      <Route exact path="/jobs" render={() => <JobPage jobs={this.state.jobs} />} />
       </Switch>
       </React.Fragment>
       </Router>

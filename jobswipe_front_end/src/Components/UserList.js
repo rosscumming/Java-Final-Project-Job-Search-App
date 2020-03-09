@@ -3,7 +3,12 @@ import React from 'react';
 const UserList = ({users}) => {
 
   const userList = users.map((user, id) => {
-    return <li key={id}><a href="/jobs">{user.name}</a></li>
+    return (
+    <section key={id}><a href="/jobs">{user.name}</a>
+    <p>{user.savedJobs}</p>
+    </section>
+  )
+
   })
 
   return (
