@@ -22,6 +22,12 @@ public class User {
     private Integer salary;
 
     @Column
+    private Integer initial_salary;
+
+    @Column
+    private Integer salary_weight;
+
+    @Column
     private String location;
 
     @JsonIgnoreProperties("users")
@@ -35,6 +41,37 @@ public class User {
 
     private List<SavedJob> savedJobs;
 
+    @JsonIgnoreProperties("users")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "users_disliked_jobs",
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name="disliked_jobs_id", nullable = false, updatable = false)}
+    )
+
+    private List<DislikedJob> dislikedJobs;
+
+
+    public User (String name, Integer salary, Integer initial_salary, Integer salary_weight, String location){
+        this.name = name;
+        this.salary = salary;
+        this.initial_salary = initial_salary;
+        this.salary_weight = salary_weight;
+        this.location = location;
+        this.savedJobs = new ArrayList<SavedJob>();
+        this.dislikedJobs = new ArrayList<DislikedJob>();
+    }
+
+    public void addSavedJob(SavedJob job){
+        this.savedJobs.add(job);
+        updateUserSalary(job);
+    }
+
+
+    public User () {
+    }
+
     public List<SavedJob> getSavedJobs() {
         return savedJobs;
     }
@@ -43,22 +80,14 @@ public class User {
         this.savedJobs = savedJobs;
     }
 
-    public User (String name, Integer salary, String location){
-        this.name = name;
-        this.salary = salary;
-        this.location = location;
-        this.savedJobs = new ArrayList<SavedJob>();
+    public List<DislikedJob> getDislikedJobs() {
+        return dislikedJobs;
     }
 
-    public void addSavedJob(SavedJob job){
-        this.savedJobs.add(job);
+    public void setDislikedJobs(List<DislikedJob> dislikedJobs) {
+        this.dislikedJobs = dislikedJobs;
     }
 
-
-
-    public User () {
-
-    }
 
     public Long getId() {
         return id;
@@ -84,6 +113,23 @@ public class User {
         this.salary = salary;
     }
 
+    public Integer getInitial_salary() {
+        return initial_salary;
+    }
+
+    public void setInitial_salary(Integer initial_salary) {
+        this.initial_salary = initial_salary;
+    }
+
+
+    public Integer getSalary_weight() {
+        return salary_weight;
+    }
+
+    public void setSalary_weight(Integer salary_weight) {
+        this.salary_weight = salary_weight;
+    }
+
     public String getLocation() {
         return location;
     }
@@ -92,5 +138,22 @@ public class User {
         this.location = location;
     }
 
+    public int savedJobCount() {
+        return savedJobs.size();
+    }
 
+    public void updateUserSalaryWeight(SavedJob job1) {
+        this.salary_weight += job1.getSalary_weight();
+    }
+
+    public void updateUserSalary(SavedJob job1){
+        Integer salaryDifference = (this.salary * this.salary_weight) + (job1.getSalary() * job1.getSalary_weight());
+        updateUserSalaryWeight(job1);
+        this.salary = salaryDifference/(this.salary_weight);
+    }
+
+    public void resetSalary() {
+        this.salary = this.initial_salary;
+        this.salary_weight = 5;
+    }
 }
