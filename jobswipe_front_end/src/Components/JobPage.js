@@ -9,15 +9,32 @@ const JobPage = ({ jobs }) => {
   if (!jobs.length) return null;
   const job = jobs[selectedJobIndex]
 
+  const requestOptions = {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      company: job.employerName,
+      title: job.jobTitle,
+      salary: job.maximumSalary,
+      salaryWeight: 5,
+      description: job.jobDescription
+    })
+  }
+
+  const handleJobLiked = () => {
+    fetch("http://localhost:8080/savedJobs", requestOptions)
+      .then(response => response.json())
+      .then(data => console.log(data));
+  }
+
   return (
 
     <section>
-      <h1>New Job Details</h1>
-      <h2>Company Name</h2>
-      <h2>Job Title</h2>
-        <button>LIKE</button><button>DISLIKE</button>
-        <p>Description:</p><p>Salary: £</p>
-        <ul>{ job.jobTitle }<button onClick={() => setSelectedJobIndex(selectedJobIndex+1)}>Next Job</button></ul>
+      <h2>{ job.employerName }</h2>
+      <h2>{ job.jobTitle }</h2>
+        <p><button onClick={() => setSelectedJobIndex(selectedJobIndex+1)}>Next Job</button>
+        <button onClick={handleJobLiked}>I Love This Job!</button>
+        </p>
     </section>
   )
 

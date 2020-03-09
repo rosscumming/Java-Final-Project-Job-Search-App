@@ -27,7 +27,7 @@ public class SavedJob {
     @Column
     private Integer salary_weight;
 
-    @Column
+    @Column(length=1000)
     private String description;
 
     @JsonIgnoreProperties("savedJobs")
