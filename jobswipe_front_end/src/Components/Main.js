@@ -24,6 +24,11 @@ class Main extends Component {
     .then(res => res.json())
     .then(data => data['_embedded'])
     .then(users => this.setState({users: users.users}))
+
+    fetch("http://localhost:3001/jobs")
+    .then(res => res.json())
+    .then(jobs => this.setState({jobs: jobs}))
+  
   }
 
   render() {
@@ -37,7 +42,7 @@ class Main extends Component {
       <Route path="/register" component={Register} />
       <Route path="/users" render={() => <UserList users={this.state.users} />} />
       <Route path="/likes" component={UserLikes} />
-      <Route path="http://localhost:3001/jobs" component={JobPage} />
+      <Route path="/jobs" component={JobPage} />
       </Switch>
       </React.Fragment>
       </Router>

@@ -1,8 +1,11 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const btoa = require('btoa');
+const cors = require('cors');
+
 
 const app = express();
+app.use(cors());
 
 const API_KEY = require('../api_key.js');
 const authorizationHeader = `${API_KEY}`;
