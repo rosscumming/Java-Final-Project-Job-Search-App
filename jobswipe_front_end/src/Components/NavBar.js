@@ -21,7 +21,7 @@ const NavBar = () => (
   </li>
 
   <li>
-    <Link to="/jobs">New Jobs</Link>
+    <a href="http://localhost:3001/jobs">New Jobs</a>
   </li>
 </ul>
 

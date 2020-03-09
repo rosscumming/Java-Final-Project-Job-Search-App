@@ -2,8 +2,8 @@ import React from 'react';
 
 const UserList = ({users}) => {
 
-  const userList = users.map((user) => {
-    return <li>{user.name}</li>
+  const userList = users.map((user, id) => {
+    return <li key={id}>{user.name}</li>
   })
 
   return (
@@ -11,12 +11,6 @@ const UserList = ({users}) => {
       <h1>User List Information</h1>
         <ul>
           {userList}
-    // <li>User 1</li>
-    //   <button>Open Profile</button>
-    // <li>User 2</li>
-    //   <button>Open Profile</button>
-    // <li>User 3</li>
-    //   <button>Open Profile</button>
         </ul>
 
     </section>
