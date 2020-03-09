@@ -28,12 +28,13 @@ class Main extends Component {
     fetch("http://localhost:3001/jobs")
     .then(res => res.json())
     .then(jobs => this.setState({jobs: jobs}))
-  
+
   }
 
   render() {
 
     return(
+
       <Router>
       <React.Fragment>
       <NavBar />
@@ -42,7 +43,7 @@ class Main extends Component {
       <Route path="/register" component={Register} />
       <Route path="/users" render={() => <UserList users={this.state.users} />} />
       <Route path="/likes" component={UserLikes} />
-      <Route path="/jobs" component={JobPage} />
+      <Route path="/jobs" render={() => <JobPage jobs={this.state.jobs} />} />
       </Switch>
       </React.Fragment>
       </Router>

@@ -11,8 +11,8 @@ const Home = () => (
           <li>If registered already click Log In.</li>
         </ul>
         <br/>
-        <button>Register</button>
-        <button>Log In</button>
+        <a href="/register">Register </a>
+        <a href="/users">Log In </a>
       </section>
 
     );

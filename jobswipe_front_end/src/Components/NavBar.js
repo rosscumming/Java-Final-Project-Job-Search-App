@@ -19,10 +19,6 @@ const NavBar = () => (
   <li>
     <Link to="/likes">Likes</Link>
   </li>
-
-  <li>
-    <a href="/jobs">New Jobs</a>
-  </li>
 </ul>
 
 
