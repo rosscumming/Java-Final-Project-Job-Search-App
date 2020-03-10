@@ -17,25 +17,24 @@ const JobPage = ({ jobs, selectedUserId }) => {
       company: job.employerName,
       title: job.jobTitle,
       salary: job.maximumSalary,
-      salaryWeight: 5,
+      salary_weight: 5,
       description: job.jobDescription
     })
   }
 
-  const addJobToUser = () => {
+  const addJobToUser = (jobId) => {
   fetch(`http://localhost:8080/users/${activeUserId}/savedJobs`,{
-    method: 'PATCH',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      savedJobs: `http://localhost:8080/savedJobs/${job.id}`
-    })
+    method: 'POST',
+    headers: {'Content-Type': 'text/uri-list'},
+    body:`http://localhost:8080/savedJobs/${jobId}`
   })
 }
 
-  const handleJobLiked = () => {
+  const handleJobLiked = (event) => {
+    const jobId = event.target.value
     fetch("http://localhost:8080/savedJobs", requestOptions)
     .then(response => response.json())
-    .then(() => addJobToUser())
+    .then(job => addJobToUser(job.id))
 }
 
   return (
@@ -44,9 +43,8 @@ const JobPage = ({ jobs, selectedUserId }) => {
     <h2>{ job.employerName }</h2>
     <h2>{ job.jobTitle }</h2>
     <p> { job.jobDescription } </p>
-    <p><button onClick={() => setSelectedJobIndex(selectedJobIndex+1)}>Next Job</button>
-    <button onClick={handleJobLiked}>I Love This Job!</button>
-    </p>
+    <button onClick={() => setSelectedJobIndex(selectedJobIndex+1)}>Next Job</button>
+    <button onClick={handleJobLiked} value={ job.jobId }>I Love This Job!</button>
     </section>
   )
 
