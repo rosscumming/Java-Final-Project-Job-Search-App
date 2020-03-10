@@ -2,43 +2,73 @@ import React, { Component } from "react";
 
 class Register extends Component {
 
-constructor(props) {
-super(props);
-this.state = {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      salary: "",
+      initial_salary: 0,
+      salary_weight: 5,
+      location: ""
+    }
+    this.handleNewUser = this.handleNewUser.bind(this)
+    this.handleNameChange = this.handleNameChange.bind(this)
+    this.handleSalaryChange = this.handleSalaryChange.bind(this)
+    this.handleLocationChange = this.handleLocationChange.bind(this)
+  }
 
-  name: "",
-  salary: "",
-  location: ""
+  handleNewUser(event){
+    event.preventDefault();
+    const newUser = {
+      name: this.state.name,
+      salary: this.state.salary,
+      initial_salary: this.state.salary,
+      salary_weight: this.state.salary_weight,
+      location: this.state.location
+    }
+    this.props.onUserSubmit(newUser)
+  }
 
-}
+  handleNameChange(event){
+    this.setState({ name: event.target.value})
+  }
 
-}
+  handleSalaryChange(event) {
+    this.setState({ salary: event.target.value})
+  }
 
-render () {
-  return(
+  handleLocationChange(event) {
+    this.setState({ location: event.target.value})
+  }
 
-    <article>
-    <h1>Registration Page</h1>
-    <h3>Create a new profile here</h3>
+  render () {
+    return(
 
-<form>
-<input type="text"
-placeholder="Your Name"
-value={this.state.name} />
-<input type="text"
-placeholder="Expected Salary"
-value={this.state.salary} />
-<input type="text"
-placeholder="Location"
-value={this.state.location} />
+      <article>
+      <h1>Registration Page</h1>
+      <h3>Create a new profile here</h3>
 
-<input type="submit" value="POST" />
-</form>
-</article>
-)
+      <form onSubmit={this.handleNewUser}>
+      <input type="text"
+      placeholder="Your Name"
+      value={this.state.name}
+      onChange={this.handleNameChange}/>
+      <input type="text"
+      placeholder="Expected Salary"
+      value={this.state.salary}
+      onChange={this.handleSalaryChange} />
+      <input type="text"
+      placeholder="Location"
+      value={this.state.location}
+      onChange={this.handleLocationChange} />
+
+      <input type="submit" value="POST" />
+      </form>
+      </article>
+    )
 
 
-}
+  }
 
 
 

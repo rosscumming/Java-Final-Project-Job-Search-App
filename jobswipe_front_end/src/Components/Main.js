@@ -17,11 +17,28 @@ class Main extends Component {
       selectedUser: {}
     }
     this.setUser = this.setUser.bind(this);
+    this.addUser = this.addUser.bind(this);
   }
 
   setUser(id) {
     const userSelected = this.state.users.filter(user => user.id === id)
     this.setState({ selectedUser: userSelected[0] });
+  }
+
+  addUser(user){
+    const newState = [...this.state.users, user]
+    this.setState({ users: newState})
+    fetch("http://localhost:8080/users", {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        name: user.name,
+        salary: user.salary,
+        initial_salary: user.salary,
+        salary_weight: user.salary_weight,
+        location: user.location
+      })
+    })
   }
 
   componentDidMount(){
@@ -47,7 +64,7 @@ class Main extends Component {
       <h1>Hi I'm {this.state.selectedUser.name}</h1>
       <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/register" component={Register} />
+      <Route exact path="/register" render={() => <Register onUserSubmit={this.addUser}/> } />
       <Route exact path="/users" render={() => <UserList onUserSelected={this.setUser} users={this.state.users} />} />
       <Route exact path="/likes" render={() => <UserLikes selectedUserId={this.state.selectedUser.id}/>} />
       <Route exact path="/jobs" render={() => <JobPage selectedUserId={this.state.selectedUser.id} jobs={this.state.jobs} />} />
