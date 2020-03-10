@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 
 
-const JobPage = ({ jobs }) => {
+const JobPage = ({ jobs, selectedUserId }) => {
 
   const [selectedJobIndex, setSelectedJobIndex] = useState(0)
-  const [activeUserId, setActiveUserId] = useState(1)
+  const [activeUserId, setActiveUserId] = useState(selectedUserId)
 
   if (!jobs.length) return null;
   const job = jobs[selectedJobIndex]

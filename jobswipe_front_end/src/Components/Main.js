@@ -49,7 +49,7 @@ class Main extends Component {
       <Route exact path="/" component={Home} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/users" render={() => <UserList onUserSelected={this.setUser} users={this.state.users} />} />
-      <Route exact path="/likes" component={UserLikes} />
+      <Route exact path="/likes" render={() => <UserLikes selectedUserId={this.state.selectedUser.id}/>} />
       <Route exact path="/jobs" render={() => <JobPage selectedUserId={this.state.selectedUser.id} jobs={this.state.jobs} />} />
       </Switch>
       </React.Fragment>
