@@ -212,59 +212,6 @@ public class DataLoader implements ApplicationRunner {
         user18.addSavedJob(job18);
         userRepository.save(user18);
 
-
-
-        User user19 = new User("Andrew", 100000,10000, 5, "Alva");
-        userRepository.save(user19);
-
-        SavedJob job19 = new SavedJob("Cobol Inc.", "Legacy Implementation Officer", 130000, 5,"Executive Oversight position");
-        savedJobRepository.save(job19);
-
-        user19.addSavedJob(job19);
-        userRepository.save(user19);
-
-
-        User user20 = new User("Steve", 85000, 10000, 5,"Dunbar");
-        userRepository.save(user20);
-
-        SavedJob job20 = new SavedJob("Zonal", "Product Developer", 100000,5, "Management development position");
-        savedJobRepository.save(job20);
-
-        user20.addSavedJob(job20);
-        userRepository.save(user20);
-
-
-        User user21 = new User("Gary", 125000,10000, 5, "Edinburgh");
-        userRepository.save(user21);
-
-        SavedJob job21 = new SavedJob("Skyscanner", "Product Developer", 150000, 5,"Executive development position");
-        savedJobRepository.save(job21);
-
-        user21.addSavedJob(job21);
-        userRepository.save(user21);
-
-
-        User user22 = new User("Matteo", 87000, 10000, 5,"Rome");
-        userRepository.save(user22);
-
-        SavedJob job22 = new SavedJob("Italian Government", "Product Development Officer", 120000, 5,"Mid-management development position");
-        savedJobRepository.save(job22);
-
-        user22.addSavedJob(job22);
-        userRepository.save(user22);
-
-
-        User user23 = new User("Sujaul", 53000,10000, 5, "Edinburgh");
-        userRepository.save(user23);
-
-        SavedJob job23 = new SavedJob("Zonal", "Product Developer", 74000,5, "Mid-level development position");
-        savedJobRepository.save(job23);
-
-        user23.addSavedJob(job23);
-        userRepository.save(user23);
-
-
-
     }
 
 }

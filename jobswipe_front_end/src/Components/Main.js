@@ -26,8 +26,6 @@ class Main extends Component {
   }
 
   addUser(user){
-    const newState = [...this.state.users, user]
-    this.setState({ users: newState})
     fetch("http://localhost:8080/users", {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -39,6 +37,10 @@ class Main extends Component {
         location: user.location
       })
     })
+    .then(res => res.json())
+    .then(data => {
+      this.setState({ users:[ ...this.state.users, data] })
+      this.setUser(data.id)})
   }
 
   componentDidMount(){
