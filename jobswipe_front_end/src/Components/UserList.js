@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const UserList = ({users, onUserSelected}) => {
 
   const handleUserSelected = (event) => {
-    event.preventDefault()
     const selectedUserId = event.target.value
     onUserSelected(selectedUserId)
   }
@@ -11,10 +11,10 @@ const UserList = ({users, onUserSelected}) => {
   const userList = users.map((user, id) => {
     return (
     <section key={id} >
-      <a href="/jobs" onClick={handleUserSelected}>
-        <li value={user.id}>{user.name}
+      <Link to="/jobs" onClick={handleUserSelected}>
+        <li value={user.id} >{user.name}
         </li>
-      </a>
+      </Link>
     </section>
   )
 
