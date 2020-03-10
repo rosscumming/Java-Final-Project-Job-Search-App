@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 class Register extends Component {
 
@@ -18,7 +19,6 @@ class Register extends Component {
   }
 
   handleNewUser(event){
-    event.preventDefault();
     const newUser = {
       name: this.state.name,
       salary: this.state.salary,
@@ -48,22 +48,27 @@ class Register extends Component {
       <h1>Registration Page</h1>
       <h3>Create a new profile here</h3>
 
-      <form onSubmit={this.handleNewUser}>
+      <form>
       <input type="text"
       placeholder="Your Name"
       value={this.state.name}
       onChange={this.handleNameChange}/>
+
       <input type="text"
       placeholder="Expected Salary"
       value={this.state.salary}
       onChange={this.handleSalaryChange} />
+
       <input type="text"
       placeholder="Location"
       value={this.state.location}
       onChange={this.handleLocationChange} />
 
-      <input type="submit" value="POST" />
+      <Link to="/jobs" onClick={this.handleNewUser}>
+      <button type="submit">Submit</button>
+      </Link>
       </form>
+
       </article>
     )
 
