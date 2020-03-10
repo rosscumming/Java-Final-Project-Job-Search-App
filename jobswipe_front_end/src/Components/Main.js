@@ -14,13 +14,14 @@ class Main extends Component {
     this.state = {
       users: [],
       jobs:[],
-      selectedUserId: 1
+      selectedUser: {}
     }
-    this.setUserId = this.setUserId.bind(this);
+    this.setUser = this.setUser.bind(this);
   }
 
-  setUserId(id) {
-    this.setState({ selectedUserId: id });
+  setUser(id) {
+    const userSelected = this.state.users.filter(user => user.id === id)
+    this.setState({ selectedUser: userSelected[0] });
   }
 
   componentDidMount(){
@@ -43,12 +44,13 @@ class Main extends Component {
       <Router>
       <React.Fragment>
       <NavBar />
+      <h1>Hi I'm {this.state.selectedUser.name}</h1>
       <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/register" component={Register} />
-      <Route exact path="/users" render={() => <UserList onUserSelected={this.setUserId} users={this.state.users} />} />
+      <Route exact path="/users" render={() => <UserList onUserSelected={this.setUser} users={this.state.users} />} />
       <Route exact path="/likes" component={UserLikes} />
-      <Route exact path="/jobs" render={() => <JobPage selectedUserId={this.state.selectedUserId} jobs={this.state.jobs} />} />
+      <Route exact path="/jobs" render={() => <JobPage selectedUserId={this.state.selectedUser.id} jobs={this.state.jobs} />} />
       </Switch>
       </React.Fragment>
       </Router>
