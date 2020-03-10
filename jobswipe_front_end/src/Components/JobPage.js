@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 const JobPage = ({ jobs, selectedUserId }) => {
 
   const [selectedJobIndex, setSelectedJobIndex] = useState(0)
-  const [activeUserId, setActiveUserId] = useState(selectedUserId)
 
   if (!jobs.length) return null;
   const job = jobs[selectedJobIndex]
@@ -23,7 +22,7 @@ const JobPage = ({ jobs, selectedUserId }) => {
   }
 
   const addJobToUser = (jobId) => {
-  fetch(`http://localhost:8080/users/${activeUserId}/savedJobs`,{
+  fetch(`http://localhost:8080/users/${selectedUserId}/savedJobs`,{
     method: 'POST',
     headers: {'Content-Type': 'text/uri-list'},
     body:`http://localhost:8080/savedJobs/${jobId}`
