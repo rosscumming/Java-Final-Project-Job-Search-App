@@ -18,11 +18,13 @@ class Main extends Component {
     }
     this.setUser = this.setUser.bind(this);
     this.addUser = this.addUser.bind(this);
+    this.sortJobsBySalary = this.sortJobsBySalary.bind(this);
   }
 
   setUser(id) {
     const userSelected = this.state.users.filter(user => user.id === id)
     this.setState({ selectedUser: userSelected[0] });
+    this.sortJobsBySalary(this.state.jobs)
   }
 
   addUser(user){
@@ -43,6 +45,12 @@ class Main extends Component {
       this.setUser(data.id)})
   }
 
+  sortJobsBySalary(jobsList){
+    const sortedJobsList = jobsList.sort((job1, job2) => job2.maximumSalary - job1.maximumSalary);
+    console.log(sortedJobsList);
+    console.log(sortedJobsList[0]);
+  }
+
   componentDidMount(){
 
     fetch("http://localhost:8080/users")
@@ -52,8 +60,8 @@ class Main extends Component {
 
     fetch("http://localhost:3001/jobs")
     .then(res => res.json())
-    .then(jobs => this.setState({jobs: jobs}))
-
+    .then(jobs => {
+      this.setState({jobs: jobs})})
   }
 
   render() {
