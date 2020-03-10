@@ -12,7 +12,6 @@ const UserLikes = ({ selectedUserId }) => {
     .then(res => res.json())
     .then(data => data['_embedded'].savedJobs)
     .then(jobs => setLikedJobs([...jobs]))
-    .then(console.log(likedJobs))
   }
 
   useEffect(() => {

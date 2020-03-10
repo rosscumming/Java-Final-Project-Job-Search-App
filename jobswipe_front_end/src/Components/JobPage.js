@@ -22,19 +22,21 @@ const JobPage = ({ jobs, selectedUserId }) => {
   }
 
   const addJobToUser = (jobId) => {
-  fetch(`http://localhost:8080/users/${selectedUserId}/savedJobs`,{
-    method: 'POST',
-    headers: {'Content-Type': 'text/uri-list'},
-    body:`http://localhost:8080/savedJobs/${jobId}`
-  })
-}
+    fetch(`http://localhost:8080/users/${selectedUserId}/savedJobs`,{
+      method: 'POST',
+      headers: {'Content-Type': 'text/uri-list'},
+      body:`http://localhost:8080/savedJobs/${jobId}`
+    })
+  }
 
   const handleJobLiked = (event) => {
     const jobId = event.target.value
     fetch("http://localhost:8080/savedJobs", requestOptions)
     .then(response => response.json())
-    .then(job => addJobToUser(job.id))
-}
+    .then(job => {addJobToUser(job.id)
+      setSelectedJobIndex(selectedJobIndex+1)}
+    )
+  }
 
   return (
 

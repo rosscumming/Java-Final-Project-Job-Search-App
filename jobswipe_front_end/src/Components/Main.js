@@ -47,8 +47,6 @@ class Main extends Component {
 
   sortJobsBySalary(jobsList){
     const sortedJobsList = jobsList.sort((job1, job2) => job2.maximumSalary - job1.maximumSalary);
-    console.log(sortedJobsList);
-    console.log(sortedJobsList[0]);
   }
 
   componentDidMount(){
