@@ -13,10 +13,15 @@ class Main extends Component {
     super(props)
     this.state = {
       users: [],
-      jobs:[]
+      jobs:[],
+      selectedUserId: 1
     }
+    this.setUserId = this.setUserId.bind(this);
   }
 
+  setUserId(id) {
+    this.setState({ selectedUserId: id });
+  }
 
   componentDidMount(){
 
@@ -41,9 +46,9 @@ class Main extends Component {
       <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/register" component={Register} />
-      <Route exact path="/users" render={() => <UserList users={this.state.users} />} />
+      <Route exact path="/users" render={() => <UserList onUserSelected={this.setUserId} users={this.state.users} />} />
       <Route exact path="/likes" component={UserLikes} />
-      <Route exact path="/jobs" render={() => <JobPage jobs={this.state.jobs} />} />
+      <Route exact path="/jobs" render={() => <JobPage selectedUserId={this.state.selectedUserId} jobs={this.state.jobs} />} />
       </Switch>
       </React.Fragment>
       </Router>

@@ -1,11 +1,20 @@
 import React from 'react';
 
-const UserList = ({users}) => {
+const UserList = ({users, onUserSelected}) => {
+
+  const handleUserSelected = (event) => {
+    event.preventDefault()
+    const selectedUserId = event.target.value
+    onUserSelected(selectedUserId)
+  }
 
   const userList = users.map((user, id) => {
     return (
-    <section key={id}><a href="/jobs">{user.name}</a>
-    <p>{user.savedJobs}</p>
+    <section key={id} >
+      <a href="/jobs" onClick={handleUserSelected}>
+        <li value={user.id}>{user.name}
+        </li>
+      </a>
     </section>
   )
 

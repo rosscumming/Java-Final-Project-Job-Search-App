@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react';
 
 const UserLikes = () => {
-
+  
+  const [userId, setUserId] = useState(1)
   const [likedJobs, setLikedJobs] = useState([])
 
   const jobsLength = () => likedJobs.length
 
   const getJobs = () => {
-    fetch("http://localhost:8080/users/15/savedJobs")
+    fetch(`http://localhost:8080/users/${userId}/savedJobs`)
     .then(res => res.json())
     .then(data => data['_embedded'].savedJobs)
     .then(jobs => setLikedJobs([...jobs]))

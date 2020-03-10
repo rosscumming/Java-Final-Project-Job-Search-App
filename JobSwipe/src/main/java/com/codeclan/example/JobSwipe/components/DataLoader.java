@@ -32,6 +32,9 @@ public class DataLoader implements ApplicationRunner {
         SavedJob job1 = new SavedJob("Microsoft", "Junior Developer", 25000, 5, "Entry Level position using Java");
         savedJobRepository.save(job1);
 
+        user1.addSavedJob(job1);
+        userRepository.save(user1);
+
         DislikedJob Djob2 = new DislikedJob();
         dislikedJobRepository.save(Djob2);
 
