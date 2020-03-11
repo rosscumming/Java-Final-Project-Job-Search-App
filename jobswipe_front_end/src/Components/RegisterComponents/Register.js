@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import './Register.css'
+import logo from '../../JobSwipe.cvg.png'
 
 class Register extends Component {
 
@@ -50,6 +51,8 @@ class Register extends Component {
 
   render () {
     return(
+    <body>
+      <header className="main-header"><a href='./'><img class="logo" src={logo}/></a></header>
 
       <article className="register-article">
         <h1>Registration Page</h1>
@@ -90,6 +93,7 @@ class Register extends Component {
       </form>
 
     </article>
+  </body>
     )
 
 
