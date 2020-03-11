@@ -156,4 +156,8 @@ public class User {
         this.salary = this.initial_salary;
         this.salary_weight = 5;
     }
+
+    public void addDislikedJob(DislikedJob job) {
+        this.dislikedJobs.add(job);
+    }
 }

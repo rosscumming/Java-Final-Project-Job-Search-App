@@ -29,12 +29,33 @@ const JobPage = ({ jobs, selectedUserId }) => {
     })
   }
 
+  const addJobToUserDislikes = (jobLink) => {
+    fetch(`http://localhost:8080/users/${selectedUserId}/dislikedJobs`,{
+      method: 'POST',
+      headers: {'Content-Type': 'text/uri-list'},
+      body: jobLink
+    })
+  }
+
   const handleJobLiked = (event) => {
-    const jobId = event.target.value
     fetch("http://localhost:8080/savedJobs", requestOptions)
     .then(response => response.json())
     .then(job => {addJobToUser(job.id)
       setSelectedJobIndex(selectedJobIndex+1)}
+    )
+  }
+
+  const handleJobDisliked = (event) => {
+    fetch("http://localhost:8080/dislikedJobs", {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        reedId: job.jobId
+      })
+    })
+    .then(response => response.json())
+    .then(job => {addJobToUserDislikes(job['_links'].dislikedJob.href)
+      setSelectedJobIndex(selectedJobIndex + 1)}
     )
   }
 
@@ -44,7 +65,7 @@ const JobPage = ({ jobs, selectedUserId }) => {
     <h2>{ job.employerName }</h2>
     <h2>{ job.jobTitle }</h2>
     <p> { job.jobDescription } </p>
-    <button onClick={() => setSelectedJobIndex(selectedJobIndex+1)}>Next Job</button>
+    <button onClick={handleJobDisliked} value={job.jobId}>No Thankyou!</button>
     <button onClick={handleJobLiked} value={ job.jobId }>I Love This Job!</button>
     </section>
   )

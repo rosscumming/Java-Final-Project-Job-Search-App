@@ -35,12 +35,14 @@ public class DataLoader implements ApplicationRunner {
         user1.addSavedJob(job1);
         userRepository.save(user1);
 
-        DislikedJob Djob2 = new DislikedJob();
+        DislikedJob Djob2 = new DislikedJob("123455");
         dislikedJobRepository.save(Djob2);
 
         user1.addSavedJob(job1);
         userRepository.save(user1);
 
+        user1.addDislikedJob(Djob2);
+        userRepository.save(user1);
 
         User user2 = new User("Stephen", 50000,10000, 5, "Edinburgh");
         userRepository.save(user2);

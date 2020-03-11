@@ -15,6 +15,9 @@ public class DislikedJob {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
+    private String reedId;
+
     @JsonIgnoreProperties("dislikedJobs")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -27,8 +30,8 @@ public class DislikedJob {
     private List<User> users;
 
 
-    public DislikedJob(Long id) {
-        this.id = id;
+    public DislikedJob(String reedId) {
+        this.reedId = reedId;
         this.users = new ArrayList<User>();
     }
 
