@@ -47,7 +47,7 @@ class Register extends Component {
 
       <article>
       <h1>Registration Page</h1>
-      <h3>Create a new profile here</h3>
+      <h3>Create a new JobSwipe profile here;</h3>
 
       <form>
       <input type="text"

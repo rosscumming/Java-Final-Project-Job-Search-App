@@ -21,7 +21,7 @@ const UserList = ({users, onUserSelected}) => {
 
   return (
     <section>
-      <h1>User List Information</h1>
+      <h1>Choose your JobSwipe profile to begin job searching;</h1>
         <ul>
           {userList}
         </ul>
