@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import './Register.css'
-import { withAlert } from 'react-alert'
 
 class Register extends Component {
 

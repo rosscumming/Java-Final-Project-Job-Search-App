@@ -18,3 +18,9 @@ code {
   background-color: #4286f5;
   position: sticky;
 }
+
+.logo {
+  height: 2.1rem;
+  margin-top: 14px;
+  margin-left: 5px;
+}
