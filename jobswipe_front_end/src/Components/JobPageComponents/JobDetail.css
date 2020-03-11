@@ -9,6 +9,8 @@
 
   grid-column-start: 1;
   grid-column-end: 3;
+
+  text-align: center;
 }
 
 .job-bottom-left {
@@ -17,6 +19,8 @@
 
   grid-column-start: 1;
   grid-column-end: 1;
+
+  text-align: center;
 }
 
 .job-bottom-right {
@@ -25,4 +29,6 @@
 
   grid-column-start: 2;
   grid-column-end: 2;
+
+  text-align: center;
 }

@@ -1,7 +1,6 @@
 .nav {
   height: 50px;
   background-color: black;
-  margin-top: 10px;
 }
 
 .nav-ul {
@@ -12,13 +11,10 @@
   flex-direction: row;
   width: 60px;
   line-height: 30px;
-
 }
 
 .nav-li {
   padding-left: 20px;
-
-
 }
 
 .nav-link {
@@ -26,5 +22,4 @@
   display: block;
   padding: 8px;
   background-color: grey;
-
 }
