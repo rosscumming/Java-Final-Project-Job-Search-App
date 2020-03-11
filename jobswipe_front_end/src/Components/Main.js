@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Home from "./HomeComponents/Home";
 import Register from "./RegisterComponents/Register";
 import UserList from "./UserListComponents/UserList";
-import NavBar from "./NavBar";
+import NavBar from "./NavBarComponents/NavBar";
 import UserLikes from "./UserLikes"
 import JobPage from "./JobPageComponents/JobPage"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -68,7 +68,6 @@ class Main extends Component {
 
       <Router>
       <React.Fragment>
-      <h1>Hi I'm {this.state.selectedUser.name}</h1>
 
       <Switch>
       <Route exact path="/" component={Home} />

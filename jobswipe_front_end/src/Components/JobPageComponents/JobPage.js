@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NavBar from '../NavBar';
+import NavBar from '../NavBarComponents/NavBar';
 import './JobPage.css';
 import JobDetail from './JobDetail'
 import JobLikeDislikeBtn from './JobLikeDislikeBtn'
