@@ -16,7 +16,13 @@ code {
 .main-header {
   height: 4rem;
   background-color: #4286f5;
-  position: sticky;
+}
+
+.main-footer {
+  margin-top: 50px;
+  bottom: 0;
+  height: 4rem;
+  background-color: #4286f5;
 }
 
 .logo {
