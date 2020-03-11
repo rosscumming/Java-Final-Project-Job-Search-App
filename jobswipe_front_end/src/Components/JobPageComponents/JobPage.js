@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import NavBar from './NavBar';
-
+import NavBar from '../NavBar';
+import './JobPage.css';
+import JobDetail from './JobDetail'
+import JobLikeDislikeBtn from './JobLikeDislikeBtn'
 
 
 const JobPage = ({ jobs, selectedUserId }) => {
@@ -64,11 +66,8 @@ const JobPage = ({ jobs, selectedUserId }) => {
 
     <section>
     <NavBar />
-    <h2>{ job.employerName }</h2>
-    <h2>{ job.jobTitle }</h2>
-    <p> { job.jobDescription } </p>
-    <button onClick={handleJobDisliked} value={job.jobId}>No Thankyou!</button>
-    <button onClick={handleJobLiked} value={ job.jobId }>I Love This Job!</button>
+    <JobDetail job={job} />
+    <JobLikeDislikeBtn job={job} jobLiked={ handleJobLiked } jobDisliked={ handleJobDisliked }/>
     </section>
   )
 
