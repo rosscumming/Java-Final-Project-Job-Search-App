@@ -18,6 +18,7 @@ const JobDetail = ({ job }) => {
       </section>
       <section className="job-bottom-left">
         <p> {job.jobDescription} </p>
+        <a href={job.jobUrl} target="_blank"><h4>Want to learn more? Click here to see the full advert</h4></a>
       </section>
     </main>
   );
