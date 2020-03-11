@@ -23,6 +23,7 @@
   background-color: #f5b142;
   color: #4286f5;
   height: 2rem;
+  border: 2px solid black;
 }
 
 .job-swipe {
