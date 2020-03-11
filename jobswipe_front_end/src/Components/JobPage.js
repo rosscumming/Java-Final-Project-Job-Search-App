@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NavBar from './NavBar';
 
 
 
@@ -62,6 +63,7 @@ const JobPage = ({ jobs, selectedUserId }) => {
   return (
 
     <section>
+    <NavBar />
     <h2>{ job.employerName }</h2>
     <h2>{ job.jobTitle }</h2>
     <p> { job.jobDescription } </p>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Home from "./Home";
+import Home from "./HomeComponents/Home";
 import Register from "./Register";
 import UserList from "./UserList";
 import NavBar from "./NavBar";
@@ -68,8 +68,8 @@ class Main extends Component {
 
       <Router>
       <React.Fragment>
-      <NavBar />
       <h1>Hi I'm {this.state.selectedUser.name}</h1>
+
       <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/register" render={() => <Register onUserSubmit={this.addUser}/> } />
