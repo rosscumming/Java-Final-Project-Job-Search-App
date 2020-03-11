@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import './Register.css'
+import { form, control, button } from 'react-validation'
 
 class Register extends Component {
 
@@ -17,9 +18,11 @@ class Register extends Component {
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleSalaryChange = this.handleSalaryChange.bind(this)
     this.handleLocationChange = this.handleLocationChange.bind(this)
+    this.isFormValid = this.isFormValid.bind(this)
   }
 
   handleNewUser(event){
+    if (!this.state.name || !this.state.salary || !this.state.location) return console.log("ERROR");
     const newUser = {
       name: this.state.name,
       salary: this.state.salary,
@@ -42,31 +45,42 @@ class Register extends Component {
     this.setState({ location: event.target.value})
   }
 
+  isFormValid() {
+    return this.state.name && this.state.salary && this.state.location ? './jobs' : './register'
+  }
+
   render () {
     return(
 
-      <article>
+      <article className="register-article">
       <h1>Registration Page</h1>
-      <h3>Create a new JobSwipe profile here;</h3>
+      <h3>Create a new JobSwipe profile here</h3>
 
-      <form>
+      <form className="register-form">
       <input type="text"
       placeholder="Your Name"
       value={this.state.name}
-      onChange={this.handleNameChange}/>
+      onChange={this.handleNameChange}
+      className="register-input"
+      required="required"/>
 
-      <input type="text"
+      <input type="number"
+      step='2000'
       placeholder="Expected Salary"
       value={this.state.salary}
-      onChange={this.handleSalaryChange} />
+      onChange={this.handleSalaryChange}
+      className="register-input"
+      required="required"/>
 
       <input type="text"
       placeholder="Location"
       value={this.state.location}
-      onChange={this.handleLocationChange} />
+      onChange={this.handleLocationChange}
+      className="register-input"
+      required="required" />
 
-      <Link to="/jobs" onClick={this.handleNewUser}>
-      <button type="submit">Submit</button>
+      <Link to={this.isFormValid} onClick={this.handleNewUser}>
+      <button type="submit" className="register-btn">Register User</button>
       </Link>
       </form>
 

@@ -24,4 +24,5 @@
   background-color: #f5b142;
   color: #4286f5;
   font-weight: bold;
+  visibility: inherit;
 }

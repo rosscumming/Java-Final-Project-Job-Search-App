@@ -1,0 +1,24 @@
+.register-article {
+  text-align: center;
+  width: 60%;
+}
+
+.register-form{
+  display: flex;
+  flex-flow: column;
+}
+
+.register-input {
+  background-color: lightgoldenrodyellow;
+  width: 30%;
+  align-self: center;
+  margin-top: 10px;
+}
+
+.register-btn {
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 14px;
+  background-color: #f5b142;
+  color: white;
+}
