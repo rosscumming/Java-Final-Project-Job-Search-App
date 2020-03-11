@@ -18,13 +18,18 @@ class Main extends Component {
     }
     this.setUser = this.setUser.bind(this);
     this.addUser = this.addUser.bind(this);
+    this.sortList = this.sortList.bind(this);
     this.sortJobsBySalary = this.sortJobsBySalary.bind(this);
   }
 
   setUser(id) {
     const userSelected = this.state.users.filter(user => user.id === id)
     this.setState({ selectedUser: userSelected[0] });
-    this.sortJobsBySalary(this.state.jobs)
+  }
+
+  sortList() {
+    const newState = this.sortJobsBySalary(this.state.jobs)
+    this.setState({jobs: newState});
   }
 
   addUser(user){
@@ -46,8 +51,41 @@ class Main extends Component {
   }
 
   sortJobsBySalary(jobsList){
-    const sortedJobsList = jobsList.sort((job1, job2) => job2.maximumSalary - job1.maximumSalary);
+
+
+    for (let jobIndex = 0; jobIndex < jobsList.length; jobIndex ++){
+      if (jobsList[jobIndex].maximumSalary === null ){
+        jobsList[jobIndex].maximumSalary = 0
+      }
+
+      if (jobsList[jobIndex].minimumSalary === null ){
+        jobsList[jobIndex].maximumSalary = 0
+      }
+
+      let averageJobSalary = (jobsList[jobIndex].maximumSalary - jobsList[jobIndex].minimumSalary)/2
+      let differential =  averageJobSalary - this.state.selectedUser.salary
+      differential = Math.abs(differential)
+      jobsList[jobIndex]['differential'] = differential;
+      // let differential = function (jobSalary, userSalary) { return Math.abs(jobsList[jobIndex].maximumSalary - this.state.selectedUser.salary)}
+      // var difference = function (a, b) { return Math.abs(a - b); }
+      // let mappedJobsSalary = jobsList.map( job => job.maximumSalary - this.state.selectedUser.salary);
+      // let sortedJobsList = jobsList.sort((job1, job2) => job2.maximumSalary - job1.maximumSalary);
+    }
+
+    const sortedJobsList = jobsList.sort((job1, job2) => job1.differential - job2.differential);
+
+    return sortedJobsList
+
   }
+
+  componentDidUpdate(){
+    fetch("http://localhost:8080/users")
+    .then(res => res.json())
+    .then(data => data['_embedded'])
+      this.sortList()
+
+    }
+
 
   componentDidMount(){
 
