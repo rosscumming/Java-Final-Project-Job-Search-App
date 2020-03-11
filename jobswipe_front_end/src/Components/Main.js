@@ -76,7 +76,7 @@ class Main extends Component {
       <Route exact path="/likes" render={() => <UserLikes selectedUserId={this.state.selectedUser.id}/>} />
       <Route exact path="/jobs" render={() => <JobPage selectedUserId={this.state.selectedUser.id} jobs={this.state.jobs} />} />
       </Switch>
-      <footer className="main-footer"/>
+      <footer className="main-footer">&copy; 2020 5GUYS</footer>
       </React.Fragment>
       </Router>
 
