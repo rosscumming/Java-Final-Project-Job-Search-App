@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import './Register.css'
-import { form, control, button } from 'react-validation'
+import { withAlert } from 'react-alert'
 
 class Register extends Component {
 
@@ -22,7 +22,7 @@ class Register extends Component {
   }
 
   handleNewUser(event){
-    if (!this.state.name || !this.state.salary || !this.state.location) return console.log("ERROR");
+    if (!this.state.name || !this.state.salary || !this.state.location) return null;
     const newUser = {
       name: this.state.name,
       salary: this.state.salary,
@@ -53,38 +53,44 @@ class Register extends Component {
     return(
 
       <article className="register-article">
-      <h1>Registration Page</h1>
-      <h3>Create a new JobSwipe profile here</h3>
+        <h1>Registration Page</h1>
+        <h3><span>Create a new </span>
+          <span className="job-swipe-capitals">J</span>
+          <span className="job-swipe">ob</span>
+          <span className="job-swipe-capitals">S</span>
+          <span className="job-swipe">wipe</span>
+          <span> profile here!!</span>
+        </h3>
 
-      <form className="register-form">
-      <input type="text"
-      placeholder="Your Name"
-      value={this.state.name}
-      onChange={this.handleNameChange}
-      className="register-input"
-      required="required"/>
+        <form className="register-form">
+          <input type="text"
+            placeholder="Your Name"
+            value={this.state.name}
+            onChange={this.handleNameChange}
+            className="register-input"
+          />
 
-      <input type="number"
-      step='2000'
-      placeholder="Expected Salary"
-      value={this.state.salary}
-      onChange={this.handleSalaryChange}
-      className="register-input"
-      required="required"/>
+          <input type="number"
+            step='2000'
+            placeholder="Expected Salary"
+            value={this.state.salary}
+            onChange={this.handleSalaryChange}
+            className="register-input"
+          />
 
-      <input type="text"
-      placeholder="Location"
-      value={this.state.location}
-      onChange={this.handleLocationChange}
-      className="register-input"
-      required="required" />
+          <input type="text"
+            placeholder="Location"
+            value={this.state.location}
+            onChange={this.handleLocationChange}
+            className="register-input"
+          />
 
-      <Link to={this.isFormValid} onClick={this.handleNewUser}>
-      <button type="submit" className="register-btn">Register User</button>
-      </Link>
+          <Link to={this.isFormValid} onClick={this.handleNewUser}>
+            <button type="submit" className="register-btn">Register User</button>
+          </Link>
       </form>
 
-      </article>
+    </article>
     )
 
 

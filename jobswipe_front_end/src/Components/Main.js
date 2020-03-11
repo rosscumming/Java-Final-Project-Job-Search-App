@@ -68,6 +68,7 @@ class Main extends Component {
 
       <Router>
       <React.Fragment>
+      <header className="main-header"/>
       <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/register" render={() => <Register onUserSubmit={this.addUser}/> } />
