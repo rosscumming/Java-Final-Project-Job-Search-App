@@ -38,7 +38,7 @@ const UserLikes = ({ selectedUserId }) => {
 
 return (
   <body>
-    <header className="main-header"><a href='./'><img class="logo" src={logo}/></a></header>
+    <header className="main-header"><img class="logo" src={logo}/></header>
     <section>
       <h1>Liked Jobs List</h1>
         <ul>
