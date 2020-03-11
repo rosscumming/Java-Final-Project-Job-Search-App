@@ -24,6 +24,9 @@
 }
 
 .job-bottom-right {
+  font-weight: bold;
+  font-size: 25px;
+
   grid-row-start: 2;
   grid-row-end: 2;
 
