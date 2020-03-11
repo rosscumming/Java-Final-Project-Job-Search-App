@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './UserList.css';
+import User from '../UserComponents/User';
 
 const UserList = ({users, onUserSelected}) => {
 
@@ -9,14 +10,11 @@ const UserList = ({users, onUserSelected}) => {
     onUserSelected(selectedUserId)
   }
 
-  const userList = users.map((user, id) => {
+  const userList = users.map((user) => {
     return (
-    <section key={id} >
-      <Link to="/jobs" onClick={handleUserSelected}>
-        <li value={user.id} >{user.name}
-        </li>
-      </Link>
-    </section>
+    <User key={user.id} currentUser={user} userSelected={handleUserSelected} >
+
+    </User>
   )
 
   })
