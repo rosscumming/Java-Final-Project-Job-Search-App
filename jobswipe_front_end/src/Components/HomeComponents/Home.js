@@ -1,21 +1,27 @@
 import React from "react";
 import Access from './Access';
-import logo from '../../JobSwipe.cvg.png'
+import './Home.css';
+import logo from '../../assets/JobSwipe_2.png';
+
+
 
 
 const Home = () => {
+
   return (
-    <body>
-      <header className="main-header"><a href='./'><img class="logo" src={logo}/></a></header>
-      <section>
+    <main>
+      <link href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap" rel="stylesheet"></link>
+      <section className="intro-title">
         <h1>Welcome to JobSwipe</h1>
-        <p>User Instructions;</p>
+        </section>
+        <img src={logo} className="image" alt="logo" />
+        <section className="instructions-header">
+          <p>USER INSTRUCTIONS;</p>
+        </section>
         <Access />
-      </section>
-    </body>
+    </main>
+
   )
-
-
 };
 
 export default Home;
