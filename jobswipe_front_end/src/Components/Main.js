@@ -29,7 +29,7 @@ class Main extends Component {
 
   sortList() {
     const newState = this.sortJobsBySalary(this.state.jobs)
-    this.setState({jobs: newState});
+    this.setState({jobs: newState})
   }
 
   addUser(user){
@@ -82,7 +82,7 @@ class Main extends Component {
     fetch("http://localhost:8080/users")
     .then(res => res.json())
     .then(data => data['_embedded'])
-      this.sortList()
+    .then(() => this.sortList())
 
     }
 
