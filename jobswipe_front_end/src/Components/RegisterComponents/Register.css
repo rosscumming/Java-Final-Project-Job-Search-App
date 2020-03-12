@@ -1,0 +1,41 @@
+.register-article {
+  text-align: center;
+}
+
+.register-form{
+  display: flex;
+  flex-flow: column;
+}
+
+.register-input {
+  background-color: lightgoldenrodyellow;
+  width: 30%;
+  align-self: center;
+  margin-top: 10px;
+  border: 4px solid #4286f5;
+  height: 2rem;
+}
+
+.register-btn {
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 14px;
+  background-color: #f5b142;
+  color: #4286f5;
+  height: 2rem;
+  border: 2px solid black;
+}
+
+.job-swipe {
+  font-style: italic;
+  font-size: 25px;
+  color: #f5b142;
+  text-decoration: underline black;
+}
+
+.job-swipe-capitals {
+  font-style: italic;
+  font-size: 27px;
+  color: #4286f5;
+  text-decoration: underline black;
+}

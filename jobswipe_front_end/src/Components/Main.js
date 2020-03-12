@@ -6,6 +6,7 @@ import NavBar from "./NavBarComponents/NavBar";
 import UserLikes from "./UserLikes"
 import JobPage from "./JobPageComponents/JobPage"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import logo from '../JobSwipe.cvg.png'
 
 class Main extends Component {
 
@@ -68,7 +69,6 @@ class Main extends Component {
 
       <Router>
       <React.Fragment>
-
       <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/register" render={() => <Register onUserSubmit={this.addUser}/> } />
@@ -76,6 +76,7 @@ class Main extends Component {
       <Route exact path="/likes" render={() => <UserLikes selectedUserId={this.state.selectedUser.id}/>} />
       <Route exact path="/jobs" render={() => <JobPage selectedUserId={this.state.selectedUser.id} jobs={this.state.jobs} />} />
       </Switch>
+      <footer className="main-footer">&copy; 2020 5GUYS</footer>
       </React.Fragment>
       </Router>
 
