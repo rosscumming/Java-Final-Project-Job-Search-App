@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import Home from "./HomeComponents/Home";
 import Register from "./RegisterComponents/Register";
 import UserList from "./UserListComponents/UserList";
-import NavBar from "./NavBar";
+import NavBar from "./NavBarComponents/NavBar";
 import UserLikes from "./UserLikes"
 import JobPage from "./JobPageComponents/JobPage"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import logo from '../JobSwipe.cvg.png'
 
 class Main extends Component {
 
@@ -113,15 +114,16 @@ class Main extends Component {
 
       <Router>
       <React.Fragment>
-      <h1>Hi I'm {this.state.selectedUser.name}</h1>
-
       <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/register" render={() => <Register onUserSubmit={this.addUser}/> } />
       <Route exact path="/users" render={() => <UserList onUserSelected={this.setUser} users={this.state.users} />} />
       <Route exact path="/likes" render={() => <UserLikes selectedUserId={this.state.selectedUser.id}/>} />
       <Route exact path="/jobs" render={() => <JobPage selectedUserId={this.state.selectedUser.id} jobs={this.state.jobs} />} />
+
+
       </Switch>
+      <footer className="main-footer">&copy; 2020 5GUYS</footer>
       </React.Fragment>
       </Router>
 

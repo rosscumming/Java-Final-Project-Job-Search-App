@@ -1,0 +1,17 @@
+.job-page-section {
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: 6fr 1fr;
+  grid-template-areas:
+    ". job-detail ."
+    ". like-dislike-btn .";
+  text-align: center;
+}
+
+.job-detail {
+  grid-area: job-detail;
+}
+
+.like-dislike-btn {
+  grid-area: like-dislike-btn;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import './Register.css'
+import logo from '../../JobSwipe.cvg.png'
 
 class Register extends Component {
 
@@ -17,9 +18,11 @@ class Register extends Component {
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleSalaryChange = this.handleSalaryChange.bind(this)
     this.handleLocationChange = this.handleLocationChange.bind(this)
+    this.isFormValid = this.isFormValid.bind(this)
   }
 
   handleNewUser(event){
+    if (!this.state.name || !this.state.salary || !this.state.location) return null;
     const newUser = {
       name: this.state.name,
       salary: this.state.salary,
@@ -42,35 +45,55 @@ class Register extends Component {
     this.setState({ location: event.target.value})
   }
 
+  isFormValid() {
+    return this.state.name && this.state.salary && this.state.location ? './jobs' : './register'
+  }
+
   render () {
     return(
+    <body>
+      <header className="main-header"><a href='./'><img class="logo" src={logo}/></a></header>
 
-      <article>
-      <h1>Registration Page</h1>
-      <h3>Create a new profile here</h3>
+      <article className="register-article">
+        <h1>Registration Page</h1>
+        <h3><span>Create a new </span>
+          <span className="job-swipe-capitals">J</span>
+          <span className="job-swipe">ob</span>
+          <span className="job-swipe-capitals">S</span>
+          <span className="job-swipe">wipe</span>
+          <span> profile here!!</span>
+        </h3>
 
-      <form>
-      <input type="text"
-      placeholder="Your Name"
-      value={this.state.name}
-      onChange={this.handleNameChange}/>
+        <form className="register-form">
+          <input type="text"
+            placeholder="Your Name"
+            value={this.state.name}
+            onChange={this.handleNameChange}
+            className="register-input"
+          />
 
-      <input type="text"
-      placeholder="Expected Salary"
-      value={this.state.salary}
-      onChange={this.handleSalaryChange} />
+          <input type="number"
+            step='2000'
+            placeholder="Expected Salary"
+            value={this.state.salary}
+            onChange={this.handleSalaryChange}
+            className="register-input"
+          />
 
-      <input type="text"
-      placeholder="Location"
-      value={this.state.location}
-      onChange={this.handleLocationChange} />
+          <input type="text"
+            placeholder="Location"
+            value={this.state.location}
+            onChange={this.handleLocationChange}
+            className="register-input"
+          />
 
-      <Link to="/jobs" onClick={this.handleNewUser}>
-      <button type="submit">Submit</button>
-      </Link>
+          <Link to={this.isFormValid} onClick={this.handleNewUser}>
+            <button type="submit" className="register-btn">Register User</button>
+          </Link>
       </form>
 
-      </article>
+    </article>
+  </body>
     )
 
 
