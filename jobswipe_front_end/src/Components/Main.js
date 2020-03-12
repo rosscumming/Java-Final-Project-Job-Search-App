@@ -28,7 +28,8 @@ class Main extends Component {
   }
 
   sortList() {
-    const newState = this.sortJobsBySalary(this.state.jobs)
+    console.log(this.state.selectedUser)
+    const newState = this.sortJobsBySalary(this.state.jobs, this.state.selectedUser)
     this.setState({jobs: newState})
   }
 
@@ -50,10 +51,11 @@ class Main extends Component {
       this.setUser(data.id)})
   }
 
-  sortJobsBySalary(jobsList){
+  sortJobsBySalary(jobsList, selectedUser){
 
 
     for (let jobIndex = 0; jobIndex < jobsList.length; jobIndex ++){
+
       if (jobsList[jobIndex].maximumSalary === null ){
         jobsList[jobIndex].maximumSalary = 0
       }
@@ -63,37 +65,33 @@ class Main extends Component {
       }
 
       let averageJobSalary = (jobsList[jobIndex].maximumSalary - jobsList[jobIndex].minimumSalary)/2
+      let userSalary = selectedUser.salary
+
       let differential =  averageJobSalary - this.state.selectedUser.salary
+
       differential = Math.abs(differential)
+
       jobsList[jobIndex]['differential'] = differential;
       // let differential = function (jobSalary, userSalary) { return Math.abs(jobsList[jobIndex].maximumSalary - this.state.selectedUser.salary)}
       // var difference = function (a, b) { return Math.abs(a - b); }
       // let mappedJobsSalary = jobsList.map( job => job.maximumSalary - this.state.selectedUser.salary);
-      // let sortedJobsList = jobsList.sort((job1, job2) => job2.maximumSalary - job1.maximumSalary);
-    }
 
+    }
     const sortedJobsList = jobsList.sort((job1, job2) => job1.differential - job2.differential);
 
     return sortedJobsList
-
   }
 
   componentDidUpdate(prevProps, prevState){
 
-    if (prevState.jobs !== this.state.jobs){
-
-      fetch("http://localhost:8080/users")
-      .then(res => res.json())
-      .then(data => data['_embedded'])
-
+    if (prevState.jobs !== this.state.jobs && this.state.selectedUser !== null ){
+      // fetch("http://localhost:8080/users")
+      // .then(res => res.json())
+      // .then(data => data['_embedded'])
+      console.log(this.state.selectedUser)
       this.sortList()
     }
-
-    //   if (this.props.userID !== prevProps.userID) {
-    //   this.fetchData(this.props.userID);
-    // }
-
-    }
+  }
 
 
   componentDidMount(){
