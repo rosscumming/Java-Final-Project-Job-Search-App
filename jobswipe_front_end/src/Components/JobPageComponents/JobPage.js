@@ -6,6 +6,7 @@ import JobLikeDislikeBtn from "./JobLikeDislikeBtn";
 
 const JobPage = ({ jobs, selectedUserId }) => {
   const [selectedJobIndex, setSelectedJobIndex] = useState(0);
+  const activeUserId = selectedUserId;
 
   if (!jobs.length) return null;
   const job = jobs[selectedJobIndex];
@@ -63,7 +64,7 @@ const JobPage = ({ jobs, selectedUserId }) => {
   };
 
   return (
-    <main>
+    <>
       <NavBar className="main-nav" />
       <section className="job-page-section">
         <div></div>
@@ -78,7 +79,7 @@ const JobPage = ({ jobs, selectedUserId }) => {
         />
         <div></div>
       </section>
-    </main>
+    </>
   );
 };
 

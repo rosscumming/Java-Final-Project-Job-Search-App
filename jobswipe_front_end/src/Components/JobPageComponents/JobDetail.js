@@ -2,7 +2,6 @@ import React from "react";
 import "./JobDetail.css";
 
 const JobDetail = ({ job }) => {
-  
 
   return (
     <main className="job-main">

@@ -1,25 +1,8 @@
 
 
-.back-to-jobs-list-btn {
-  background-color: blue;
-  border-radius: 5px;
-  text-align: center;
-  /* display: flex; */
-  font-size: 18px;
-  margin: 4px 2px;
-  cursor: pointer;
-  padding: 10px;
-}
-
-.back-to-jobs-list-btn a {
-  text-decoration: none;
-  color: #f5b142;
-}
-
 
 h1 {
   text-align: center;
-  padding-top: 10%;
 }
 
 .user-likes-ul {
@@ -27,7 +10,33 @@ h1 {
   font-display: block;
   display: flex;
   width: 80%;
-  padding: 15%;
 }
 
 /* #f5b142; */
+
+.back-btn  {
+  border: 1px solid black;
+  background-color: #4286f5;
+  border-radius: 5px;
+  color: #f5b142;
+  padding: 10px 15px;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 30px;
+  outline: 0;
+  width: 150px;
+
+}
+
+.back-btn a {
+  color: white;
+  text-decoration: none;
+}
+
+.back-btn:hover a{
+  color: #f5b142;
+}

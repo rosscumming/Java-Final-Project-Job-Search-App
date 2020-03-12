@@ -12,6 +12,7 @@ const Access = () => {
     <li>If registered already click 'Log In'.</li>
     </ul>
     </section>
+    <br/><br/>
     <section className="home-links">
     <a className="link-register" href="/register">Register </a>
     <a className="link-login" href="/users">Log In </a>

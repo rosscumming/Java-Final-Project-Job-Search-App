@@ -6,6 +6,8 @@
     ". job-detail ."
     ". like-dislike-btn .";
   text-align: center;
+  min-height: 100%;
+  bottom: 0;
 }
 
 .job-detail {

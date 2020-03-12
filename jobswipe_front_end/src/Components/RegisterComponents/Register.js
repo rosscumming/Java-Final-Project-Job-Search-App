@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import './Register.css'
-import logo from '../../JobSwipe.cvg.png'
+import logo from '../../assets/JobSwipe_2.png'
 
 class Register extends Component {
 
@@ -57,10 +57,7 @@ class Register extends Component {
       <article className="register-article">
         <h1>Registration Page</h1>
         <h3><span>Create a new </span>
-          <span className="job-swipe-capitals">J</span>
-          <span className="job-swipe">ob</span>
-          <span className="job-swipe-capitals">S</span>
-          <span className="job-swipe">wipe</span>
+          <span className="jobswipe-logo"> &lt;JobSwipe&gt; </span>
           <span> profile here!!</span>
         </h3>
 
@@ -86,9 +83,9 @@ class Register extends Component {
             onChange={this.handleLocationChange}
             className="register-input"
           />
-
+          <br/><br/>
           <Link to={this.isFormValid} onClick={this.handleNewUser}>
-            <button type="submit" className="register-btn">Register User</button>
+            <button type="submit" className="link-register">Register User</button>
           </Link>
       </form>
 

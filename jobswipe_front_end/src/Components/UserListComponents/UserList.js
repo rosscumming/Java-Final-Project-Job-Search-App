@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./UserList.css";
 import User from "../UserComponents/User";
-import logo from '../../JobSwipe.cvg.png'
+import logo from '../../assets/JobSwipe_2.png'
 
 const UserList = ({ users, onUserSelected }) => {
   const handleUserSelected = event => {
@@ -12,19 +12,21 @@ const UserList = ({ users, onUserSelected }) => {
 
   const userList = users.map(user => {
     return (
+      <li key={user.id} className="userlist-individual">
       <User
-        key={user.id}
         currentUser={user}
         userSelected={handleUserSelected}
       ></User>
+      </li>
     );
   });
 
   return (
-  <article>
+  <article className="user-list">
     <header className="main-header"><a href='./'><img className="logo" src={logo}/></a></header>
-    <section>
-      <h1>Choose your JobSwipe profile to begin job searching;</h1>
+    <section className="userlist-section">
+      <h1>Select User Below</h1>
+      <br/><br/>
       <ul className="user-list-ul">{userList}</ul>
     </section>
   </article>
