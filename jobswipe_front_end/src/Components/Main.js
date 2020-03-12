@@ -65,18 +65,25 @@ class Main extends Component {
       }
 
       let averageJobSalary = (jobsList[jobIndex].maximumSalary - jobsList[jobIndex].minimumSalary)/2
-      // let userSalary = selectedUser.salary
+      let userSalary = this.state.selectedUser.salary
 
-      let differential =  averageJobSalary - this.state.selectedUser.salary
+      let differential =  averageJobSalary - userSalary
       differential = Math.abs(differential)
 
       jobsList[jobIndex]['differential'] = differential;
+
+      console.log("average Job salary", "index",jobIndex, averageJobSalary);
+      console.log("user salary", "index",jobIndex, userSalary);
+      console.log("differential", "index",jobIndex, differential);
       // let differential = function (jobSalary, userSalary) { return Math.abs(jobsList[jobIndex].maximumSalary - this.state.selectedUser.salary)}
       // var difference = function (a, b) { return Math.abs(a - b); }
       // let mappedJobsSalary = jobsList.map( job => job.maximumSalary - this.state.selectedUser.salary);
 
     }
-    const sortedJobsList = jobsList.sort((job1, job2) => job1.differential - job2.differential);
+    // const sortedJobsList = jobsList.sort((job1, job2) => job1.differential - job2.differential);
+    // const sortedJobsList = jobsList.sort((job1, job2) => (job1.differential - job2.differential) ? 1 : -1)
+    const sortedJobsList = jobsList.sort(function(job1, job2){return job1.differential - job2.differential})
+    // points.sort(function(a, b){return a - b});
     console.log(sortedJobsList)
     return sortedJobsList
   }
