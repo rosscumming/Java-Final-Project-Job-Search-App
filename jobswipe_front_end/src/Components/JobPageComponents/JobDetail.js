@@ -2,6 +2,8 @@ import React from "react";
 import "./JobDetail.css";
 
 const JobDetail = ({ job }) => {
+  console.log(job);
+
   return (
     <main className="job-main">
       <section className="job-top">
