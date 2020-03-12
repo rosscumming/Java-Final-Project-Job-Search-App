@@ -78,11 +78,20 @@ class Main extends Component {
 
   }
 
-  componentDidUpdate(){
-    fetch("http://localhost:8080/users")
-    .then(res => res.json())
-    .then(data => data['_embedded'])
-    .then(() => this.sortList())
+  componentDidUpdate(prevProps, prevState){
+
+    if (prevState.jobs !== this.state.jobs){
+
+      fetch("http://localhost:8080/users")
+      .then(res => res.json())
+      .then(data => data['_embedded'])
+
+      this.sortList()
+    }
+
+    //   if (this.props.userID !== prevProps.userID) {
+    //   this.fetchData(this.props.userID);
+    // }
 
     }
 
