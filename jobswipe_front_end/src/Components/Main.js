@@ -6,7 +6,6 @@ import NavBar from "./NavBarComponents/NavBar";
 import UserLikes from "./UserLikes"
 import JobPage from "./JobPageComponents/JobPage"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import logo from '../JobSwipe.cvg.png'
 
 class Main extends Component {
 
