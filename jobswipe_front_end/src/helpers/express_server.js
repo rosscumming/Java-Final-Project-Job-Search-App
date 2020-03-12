@@ -11,7 +11,7 @@ const API_KEY = require('../api_key.js');
 const authorizationHeader = `${API_KEY}`;
 
 app.get("/jobs", (req, res) => {
-  return fetch("https://www.reed.co.uk/api/1.0/search?keywords=tech",
+  return fetch("https://www.reed.co.uk/api/1.0/search?keywords=tech&locationName=Edinburgh",
     {headers: {"Authorization": `Basic ${btoa(authorizationHeader+":")}`}})
     .then(reedRes => reedRes.json())
     .then(data => data.results)

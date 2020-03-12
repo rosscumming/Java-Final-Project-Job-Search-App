@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./UserList.css";
 import User from "../UserComponents/User";
-import logo from '../../assets/JobSwipe_2.png'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 const UserList = ({ users, onUserSelected }) => {
   const handleUserSelected = event => {
@@ -23,7 +24,13 @@ const UserList = ({ users, onUserSelected }) => {
 
   return (
   <article className="user-list">
-    <header className="main-header"><a href='./'><img className="logo" src={logo}/></a></header>
+    <header className="main-header">
+    <a href="/" className="logo">
+      {" "}
+      JOBSWIPE
+      <FontAwesomeIcon icon="hand-pointer" className="logo-fa" />
+    </a>
+    </header>
     <section className="userlist-section">
       <h1>Select User Below</h1>
       <br/><br/>
