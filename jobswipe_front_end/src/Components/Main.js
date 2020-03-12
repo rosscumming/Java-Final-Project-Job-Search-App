@@ -69,7 +69,6 @@ class Main extends Component {
       // let userSalary = selectedUser.salary
 
       let differential =  averageJobSalary - this.state.selectedUser.salary
-      console.log(differential)
       differential = Math.abs(differential)
 
       jobsList[jobIndex]['differential'] = differential;
@@ -79,16 +78,17 @@ class Main extends Component {
 
     }
     const sortedJobsList = jobsList.sort((job1, job2) => job1.differential - job2.differential);
-
+    console.log(sortedJobsList)
     return sortedJobsList
   }
 
   componentDidUpdate(prevProps, prevState){
-
-    if (prevState.jobs !== this.state.jobs && Object.entries(this.state.selectedUser).length !== 0 && this.state.selectedUser.constructor === Object){
+    console.log(Object.entries(this.state.selectedUser))
+    if ((prevState.jobs !== this.state.jobs || prevState.selectedUser !== this.state.selectedUser) && (Object.entries(this.state.selectedUser).length !== 0 )){
       // fetch("http://localhost:8080/users")
       // .then(res => res.json())
       // .then(data => data['_embedded'])
+      console.log("hello")
       this.sortList()
     }
   }
