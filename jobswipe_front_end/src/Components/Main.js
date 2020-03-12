@@ -99,7 +99,7 @@ class Main extends Component {
 
   componentDidMount(){
 
-    fetch("http://localhost:8080/users")
+    fetch("http://localhost:8080/users?size=100")
     .then(res => res.json())
     .then(data => data['_embedded'])
     .then(users => this.setState({users: users.users}))
