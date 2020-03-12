@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import logo from '../assets/JobSwipe_2.png'
 import './UserLikes.css';
+import { Link } from "react-router-dom";
 
 
-const UserLikes = ({ selectedUserId }) => {
+const UserLikes = ({ selectedUserId, onUserSelected }) => {
 
   const [likedJobs, setLikedJobs] = useState([])
 
@@ -17,10 +18,15 @@ const UserLikes = ({ selectedUserId }) => {
     .then(jobs => setLikedJobs([...jobs]))
   }
 
+  const handleBackClicked = (event) => {
+    console.log(event.target);
+    console.log(selectedUserId);
+    onUserSelected(selectedUserId)
+  }
+
   useEffect(() => {
     getJobs()
   }, [jobsLength()])
-
 
   const allLikedJobs = () => {
     if (!likedJobs.length > 0) return null;
@@ -40,14 +46,16 @@ const UserLikes = ({ selectedUserId }) => {
 return (
 
   <article>
-    <header className="main-header"><img class="logo" src={logo}/></header>
+    <header className="main-header"><img className="logo" src={logo}/></header>
     <h1>Liked Jobs List</h1>
 
   <section className="user-likes">
     <ul className="user-likes-ul">
       {allLikedJobs()}
     </ul>
-    <button className="back-btn"><a href="/jobs">Back to Jobs</a></button>
+    <Link className="back-btn" to="/jobs" onClick={() => onUserSelected(selectedUserId)}>
+    Back To Jobs
+    </Link>
   </section>
   </article>
 
