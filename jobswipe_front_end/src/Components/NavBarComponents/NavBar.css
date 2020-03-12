@@ -5,6 +5,7 @@
   background: #4286f5;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .logo {
@@ -17,7 +18,6 @@
   width: 200px;
   display: flex;
   flex-direction: row;
-  /* font-style: italic; */
 }
 
 .logo-fa {
@@ -34,7 +34,6 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  width: 100vw;
 }
 
 .nav-li {

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import logo from '../JobSwipe.cvg.png'
+import logo from '../assets/JobSwipe_2.png'
+import './UserLikes.css';
 
 
 const UserLikes = ({ selectedUserId }) => {
@@ -38,24 +39,17 @@ const UserLikes = ({ selectedUserId }) => {
 
 return (
 
-  <body>
+  <article>
     <header className="main-header"><img class="logo" src={logo}/></header>
+    <h1>Liked Jobs List</h1>
 
   <section className="user-likes">
-      <h1>Liked Jobs List</h1>
     <ul className="user-likes-ul">
       {allLikedJobs()}
     </ul>
-    <button className="back-to-jobs-list-btn"><a href="/jobs">Back to Jobs</a></button>
+    <button className="back-btn"><a href="/jobs">Back to Jobs</a></button>
   </section>
-
-    <section>
-      <h1>Liked Jobs List</h1>
-        <ul>
-          {allLikedJobs()}
-        </ul>
-    </section>
-  </body>
+  </article>
 
 );
 }

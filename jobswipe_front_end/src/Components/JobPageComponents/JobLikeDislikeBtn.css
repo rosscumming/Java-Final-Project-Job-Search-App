@@ -8,11 +8,12 @@
 }
 
 .like-dislike-btn {
-  height: 25px;
+  height: 35px;
   width: 100px;
-  margin: 0 30px 0 30px;
+  margin: 0 30px 10px 30px;
   cursor: pointer;
   outline: none;
+  font-size: 16px;
 }
 
 .dislike-btn {

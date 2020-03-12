@@ -63,7 +63,7 @@ const JobPage = ({ jobs, selectedUserId }) => {
   };
 
   return (
-    <main>
+    <>
       <NavBar className="main-nav" />
       <section className="job-page-section">
         <div></div>
@@ -78,7 +78,7 @@ const JobPage = ({ jobs, selectedUserId }) => {
         />
         <div></div>
       </section>
-    </main>
+    </>
   );
 };
 

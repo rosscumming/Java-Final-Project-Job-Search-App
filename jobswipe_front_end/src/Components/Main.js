@@ -6,7 +6,7 @@ import NavBar from "./NavBarComponents/NavBar";
 import UserLikes from "./UserLikes"
 import JobPage from "./JobPageComponents/JobPage"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import logo from '../JobSwipe.cvg.png'
+import logo from '../assets/JobSwipe_2.png'
 
 class Main extends Component {
 
@@ -79,7 +79,9 @@ class Main extends Component {
 
       </Switch>
       <footer className="main-footer">&copy; 2020 5GUYS</footer>
+
       </React.Fragment>
+
       </Router>
 
     )
