@@ -4,6 +4,7 @@ import "./JobPage.css";
 import JobDetail from "./JobDetail";
 import JobLikeDislikeBtn from "./JobLikeDislikeBtn";
 
+
 const JobPage = ({ jobs, selectedUserId }) => {
   const [selectedJobIndex, setSelectedJobIndex] = useState(0);
   const activeUserId = selectedUserId;
@@ -39,13 +40,21 @@ const JobPage = ({ jobs, selectedUserId }) => {
     });
   };
 
+  const removeLikedJob = jobIndex => {
+    console.log("job to be removed:", jobIndex);
+    jobs.splice(jobIndex, 1)
+  }
+
   const handleJobLiked = event => {
     fetch("http://localhost:8080/savedJobs", requestOptions)
       .then(response => response.json())
       .then(job => {
         addJobToUser(job.id);
+        removeLikedJob(selectedJobIndex)
         setSelectedJobIndex(selectedJobIndex + 1);
+
       });
+
   };
 
   const handleJobDisliked = event => {
@@ -63,7 +72,8 @@ const JobPage = ({ jobs, selectedUserId }) => {
       });
   };
 
-  return (
+
+      return (
     <>
       <NavBar className="main-nav" />
       <section className="job-page-section">
