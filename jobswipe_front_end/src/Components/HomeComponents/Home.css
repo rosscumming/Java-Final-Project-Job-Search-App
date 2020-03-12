@@ -1,0 +1,28 @@
+.main {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.intro-title {
+  text-align: center;
+  background-color: #4286f5;
+  color: #f5b142;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Baloo 2', cursive;
+}
+
+.instructions-header {
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.image {
+  margin-left: 475px;
+  height: 250px;
+
+}
