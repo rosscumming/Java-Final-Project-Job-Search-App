@@ -44,6 +44,7 @@ public class DataLoader implements ApplicationRunner {
         user1.addDislikedJob(Djob2);
         userRepository.save(user1);
 
+
         User user2 = new User("Stephen", 50000,10000, 5, "Edinburgh");
         userRepository.save(user2);
 
@@ -137,7 +138,7 @@ public class DataLoader implements ApplicationRunner {
         User user11 = new User("Andrew", 150000, 10000, 5,"Granton");
         userRepository.save(user11);
 
-        SavedJob job11 = new SavedJob("University of Edinburgh", "Senior Experimental Scientist", 325000,5, "Executive position developing new languages using light snd sound waves");
+        SavedJob job11 = new SavedJob("University of Edinburgh", "Senior Experimental Scientist", 325000, 5, "Executive position developing new languages using light snd sound waves");
         savedJobRepository.save(job11);
 
         user11.addSavedJob(job11);
@@ -147,7 +148,7 @@ public class DataLoader implements ApplicationRunner {
         User user12 = new User("Cody", 140000, 10000, 5,"Pilton");
         userRepository.save(user12);
 
-        SavedJob job12 = new SavedJob("SpaceX", "Theoretical Programmer", 170000,5, "Executive position developing interfaces for the next generation rockets");
+        SavedJob job12 = new SavedJob("SpaceX", "Theoretical Programmer", 170000, 5, "Executive position developing interfaces for the next generation rockets");
         savedJobRepository.save(job12);
 
         user12.addSavedJob(job12);
@@ -157,14 +158,14 @@ public class DataLoader implements ApplicationRunner {
         User user13 = new User("Catherine", 130000,10000, 5, "Burnside");
         userRepository.save(user13);
 
-        SavedJob job13 = new SavedJob("CodeClan", "Senior Lecturer", 325000, 5,"Executive position helping educate the next generation of Software Developers");
+        SavedJob job13 = new SavedJob("CodeClan", "Senior Lecturer", 325000, 5, "Executive position helping educate the next generation of Software Developers");
         savedJobRepository.save(job13);
 
         user13.addSavedJob(job13);
         userRepository.save(user13);
 
 
-        User user14 = new User("Jamie", 55000, 10000, 5,"Morningside");
+        User user14 = new User("Jamie", 55000, 10000, 5, "Morningside");
         userRepository.save(user14);
 
         SavedJob job14 = new SavedJob("Apple", "Product Manager", 81000,5, "Executive development position");
@@ -177,7 +178,7 @@ public class DataLoader implements ApplicationRunner {
         User user15 = new User("Ross", 58000,10000, 5, "Morningside");
         userRepository.save(user15);
 
-        SavedJob job15 = new SavedJob("Inoapps", "Product Aesthetics Manager", 100000,5, "Executive designer position");
+        SavedJob job15 = new SavedJob("Inoapps", "Product Aesthetics Manager", 100000, 5, "Executive designer position");
         savedJobRepository.save(job15);
 
         user15.addSavedJob(job15);
@@ -194,7 +195,7 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user16);
 
 
-        User user17 = new User("James", 25000,10000, 5, "Scone");
+        User user17 = new User("James", 25000, 10000, 5, "Scone");
         userRepository.save(user17);
 
         SavedJob job17 = new SavedJob("Zonal", "Tester", 30000, 5,"Junior development position");
@@ -213,6 +214,49 @@ public class DataLoader implements ApplicationRunner {
 
         user18.addSavedJob(job18);
         userRepository.save(user18);
+
+
+        User user19 = new User("Steve", 125000, 10000, 5, "Dunbar");
+        userRepository.save(user19);
+
+        SavedJob job19 = new SavedJob("Inoapps", "Product Developer", 135000, 5, "Mid-management development position");
+        savedJobRepository.save(job19);
+
+        user19.addSavedJob(job19);
+        userRepository.save(user19);
+
+
+        User user20 = new User("Gary", 150000, 10000, 5, "Edinburgh");
+        userRepository.save(user20);
+
+        SavedJob job20 = new SavedJob("Google", "Senior Developer", 160000, 5,"Executive development position");
+        savedJobRepository.save(job20);
+
+        user20.addSavedJob(job20);
+        userRepository.save(user20);
+
+
+        User user21 = new User("Matteo", 120000, 10000, 5, "Edinburgh");
+        userRepository.save(user21);
+
+        SavedJob job21 = new SavedJob("Zonal", "Product Developer", 130000, 5,"Management development position");
+        savedJobRepository.save(job21);
+
+        user21.addSavedJob(job21);
+        userRepository.save(user21);
+
+
+        User user22 = new User("Andrew", 130000, 10000, 5, "Alva");
+        userRepository.save(user22);
+
+        SavedJob job22 = new SavedJob("Sky", "Overseeing Training Development Officer", 150000, 5,"Executive Management position");
+        savedJobRepository.save(job22);
+
+        user22.addSavedJob(job22);
+        userRepository.save(user22);
+
+
+
 
     }
 
