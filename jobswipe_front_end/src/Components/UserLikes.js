@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import logo from '../assets/JobSwipe_2.png'
 import './UserLikes.css';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 const UserLikes = ({ selectedUserId, onUserSelected }) => {
@@ -46,7 +48,13 @@ const UserLikes = ({ selectedUserId, onUserSelected }) => {
 return (
 
   <article>
-    <header className="main-header"><img className="logo" src={logo}/></header>
+    <header className="main-header">
+    <a href="/" className="logo">
+      {" "}
+      JOBSWIPE
+      <FontAwesomeIcon icon="hand-pointer" className="logo-fa" />
+    </a>
+    </header>
     <h1>Liked Jobs List</h1>
 
   <section className="user-likes">
