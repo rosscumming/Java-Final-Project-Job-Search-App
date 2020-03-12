@@ -6,7 +6,7 @@ import NavBar from "./NavBarComponents/NavBar";
 import UserLikes from "./UserLikes"
 import JobPage from "./JobPageComponents/JobPage"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import logo from '../JobSwipe.cvg.png'
+// import logo from '../JobSwipe.cvg.png'
 
 class Main extends Component {
 
@@ -29,8 +29,8 @@ class Main extends Component {
   }
 
   sortList() {
-    console.log(this.state.selectedUser)
-    const newState = this.sortJobsBySalary(this.state.jobs, this.state.selectedUser)
+
+    const newState = this.sortJobsBySalary(this.state.jobs)
     this.setState({jobs: newState})
   }
 
@@ -52,7 +52,7 @@ class Main extends Component {
       this.setUser(data.id)})
   }
 
-  sortJobsBySalary(jobsList, selectedUser){
+  sortJobsBySalary(jobsList){
 
 
     for (let jobIndex = 0; jobIndex < jobsList.length; jobIndex ++){
@@ -66,10 +66,10 @@ class Main extends Component {
       }
 
       let averageJobSalary = (jobsList[jobIndex].maximumSalary - jobsList[jobIndex].minimumSalary)/2
-      let userSalary = selectedUser.salary
+      // let userSalary = selectedUser.salary
 
       let differential =  averageJobSalary - this.state.selectedUser.salary
-
+      console.log(differential)
       differential = Math.abs(differential)
 
       jobsList[jobIndex]['differential'] = differential;
@@ -85,11 +85,10 @@ class Main extends Component {
 
   componentDidUpdate(prevProps, prevState){
 
-    if (prevState.jobs !== this.state.jobs && this.state.selectedUser !== null ){
+    if (prevState.jobs !== this.state.jobs && Object.entries(this.state.selectedUser).length !== 0 && this.state.selectedUser.constructor === Object){
       // fetch("http://localhost:8080/users")
       // .then(res => res.json())
       // .then(data => data['_embedded'])
-      console.log(this.state.selectedUser)
       this.sortList()
     }
   }
