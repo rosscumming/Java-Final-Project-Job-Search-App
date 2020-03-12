@@ -2,6 +2,8 @@ import React from "react";
 import "./JobDetail.css";
 
 const JobDetail = ({ job }) => {
+  console.log(job);
+
   return (
     <main className="job-main">
       <section className="job-top">
@@ -18,6 +20,7 @@ const JobDetail = ({ job }) => {
       </section>
       <section className="job-bottom-left">
         <p> {job.jobDescription} </p>
+        <a href={job.jobUrl} target="_blank"><h4>Want to learn more? Click here to see the full advert</h4></a>
       </section>
     </main>
   );

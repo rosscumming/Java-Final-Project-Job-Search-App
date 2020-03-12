@@ -1,22 +1,25 @@
 import React from "react";
 import "./JobLikeDislikeBtn.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const JobLikeDislikeBtn = ({ job, jobLiked, jobDisliked }) => {
   return (
-    <section>
+    <section className="container-btns">
       <button
-        className="like-dislike-btn"
+        className="like-dislike-btn dislike-btn"
         onClick={() => jobDisliked()}
         value={job.jobId}
       >
-        No Thankyou!
+        DISLIKE
+        <FontAwesomeIcon icon="times-circle" className="check-cross" />
       </button>
       <button
-        className="like-dislike-btn"
+        className="like-dislike-btn like-btn"
         onClick={() => jobLiked()}
         value={job.jobId}
       >
-        I Love This Job!
+        LIKE
+        <FontAwesomeIcon icon="check-circle" className="check-cross" />
       </button>
     </section>
   );

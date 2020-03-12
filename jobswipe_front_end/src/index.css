@@ -1,9 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald|Roboto&display=swap");
+
 body {
   background-color: white;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,4 +11,27 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.main-header {
+  height: 4rem;
+  background-color: #4286f5;
+  border-bottom: 1px solid #f5b142;
+}
+
+.main-footer {
+  margin-top: 50px;
+  bottom: 0;
+  height: 2rem;
+  background-color: #4286f5;
+  border-top: 1px solid #f5b142;
+  color: white;
+  text-align: right;
+  padding-top: 10px;
+}
+
+.logo {
+  height: 2.1rem;
+  margin-top: 14px;
+  margin-left: 5px;
 }
