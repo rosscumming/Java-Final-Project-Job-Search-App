@@ -5,7 +5,7 @@ import UserList from "./UserListComponents/UserList";
 import NavBar from "./NavBarComponents/NavBar";
 import UserLikes from "./UserLikes"
 import JobPage from "./JobPageComponents/JobPage"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 class Main extends Component {
 
@@ -14,7 +14,8 @@ class Main extends Component {
     this.state = {
       users: [],
       jobs:[],
-      selectedUser: {}
+      selectedUser: {},
+      isLoading: false
     }
     this.setUser = this.setUser.bind(this);
     this.addUser = this.addUser.bind(this);
@@ -24,7 +25,10 @@ class Main extends Component {
 
   setUser(id) {
     const userSelected = this.state.users.filter(user => user.id === id)
-    this.setState({ selectedUser: userSelected[0] });
+    this.setState({ selectedUser: userSelected[0] }, () => {
+      this.setState({isLoading: false})
+    });
+    console.log("called setState for userSelected")
   }
 
   sortList() {
@@ -34,21 +38,24 @@ class Main extends Component {
   }
 
   addUser(user){
-    fetch("http://localhost:8080/users", {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        name: user.name,
-        salary: user.salary,
-        initial_salary: user.salary,
-        salary_weight: user.salary_weight,
-        location: user.location
+    this.setState({ isLoading: true }, () => {
+      fetch("http://localhost:8080/users", {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          name: user.name,
+          salary: user.salary,
+          initial_salary: user.salary,
+          salary_weight: user.salary_weight,
+          location: user.location
+        })
       })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ users:[ ...this.state.users, data]})
+        this.setUser(data.id)})
     })
-    .then(res => res.json())
-    .then(data => {
-      this.setState({ users:[ ...this.state.users, data] })
-      this.setUser(data.id)})
+
   }
 
   sortJobsBySalary(jobsList){
@@ -105,6 +112,9 @@ class Main extends Component {
   }
 
   render() {
+    console.log(`hit render id is: ${this.state.selectedUser.id}`)
+    console.log(this.state.isLoading)
+    if (this.state.isLoading) return null
 
     return(
 
@@ -114,10 +124,16 @@ class Main extends Component {
       <Route exact path="/" component={Home} />
       <Route exact path="/register" render={() => <Register onUserSubmit={this.addUser}/> } />
       <Route exact path="/users" render={() => <UserList onUserSelected={this.setUser} users={this.state.users} />} />
-      <Route exact path="/likes" render={() => <UserLikes jobs={this.state.jobs} onUserSelected={this.setUser} selectedUserId={this.state.selectedUser.id}/>} />
-      <Route exact path="/jobs" render={() => <JobPage selectedUserId={this.state.selectedUser.id} jobs={this.state.jobs} />} />
-
-
+      <Route exact path="/likes" render={() => {
+        return this.state.selectedUser.id
+          ? <UserLikes jobs={this.state.jobs} onUserSelected={this.setUser} selectedUserId={this.state.selectedUser.id}/>
+          : <Redirect to="/"/>
+      }}/>
+      <Route exact path="/jobs" render={() => {
+        return this.state.selectedUser.id
+        ? <JobPage selectedUserId={this.state.selectedUser.id} jobs={this.state.jobs} />
+        :  <Redirect to="/"/>
+      }}/>
       </Switch>
       <footer className="main-footer">&copy; 2020 5GUYS</footer>
 

@@ -4,6 +4,7 @@ import "./JobPage.css";
 import JobDetail from "./JobDetail";
 import JobLikeDislikeBtn from "./JobLikeDislikeBtn";
 
+
 const JobPage = ({ jobs, selectedUserId }) => {
   const [selectedJobIndex, setSelectedJobIndex] = useState(0);
   const activeUserId = selectedUserId;
@@ -63,7 +64,8 @@ const JobPage = ({ jobs, selectedUserId }) => {
       });
   };
 
-  return (
+
+      return (
     <>
       <NavBar className="main-nav" />
       <section className="job-page-section">
