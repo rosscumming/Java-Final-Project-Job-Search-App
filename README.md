@@ -1,5 +1,5 @@
 # Java-Final-Project-Job-Search-App
-This is a full stack project using a Java Spring back-end connecting to PostgresSQL DB, and Javascript React front-end to render the project. We also included an Express server to help with Cors and keep our API key for fetch requests confidiential and hidden. The project was a 5 day group task as part of the Codeclan Professional Software Development course and served primarily as a learning experience for the team, wth a view to quite a caool final product.
+This is a full stack project using a Java Spring back-end connecting to PostgresSQL DB, and Javascript React front-end to render the project. We also included an Express server to help with Cors and keep our API key for fetch requests confidiential and hidden. The project was a 5 day group task as part of the Codeclan Professional Software Development course and served primarily as a learning experience for the team, wth a view to quite a cool final product.
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. We have also deployed the app on Heroku if you would like to view the finished article, for now at least!
