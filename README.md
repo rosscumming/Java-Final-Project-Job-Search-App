@@ -1,4 +1,4 @@
-# Java-Final-Project-Job-Search-App
+# JobSwipe
 This is a full stack project using a Java Spring back-end connecting to PostgresSQL DB, and Javascript React front-end to render the project. We also included an Express server to help with Cors and keep our API key for fetch requests confidiential and hidden. The project was a 5 day group task as part of the Codeclan Professional Software Development course and served primarily as a learning experience for the team, wth a view to quite a cool final product.
 
 ## Getting Started
